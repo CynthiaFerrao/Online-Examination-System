@@ -1,0 +1,1154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Student Dashboard | Online Examination System</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="dashboard">
+
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+
+        <div class="sidebar-brand">
+
+
+            <div class="portal-logo">
+
+                <svg
+                    viewBox="0 0 52 52"
+                    xmlns="http://www.w3.org/2000/svg">
+
+                    <rect
+                        x="7"
+                        y="5"
+                        width="32"
+                        height="39"
+                        rx="7"
+                        fill="#176B8F"/>
+
+
+                    <path
+                        d="M15 15H31"
+                        stroke="white"
+                        stroke-width="3"
+                        stroke-linecap="round"/>
+
+
+                    <path
+                        d="M15 22H31"
+                        stroke="white"
+                        stroke-width="3"
+                        stroke-linecap="round"/>
+
+
+                    <path
+                        d="M15 29H23"
+                        stroke="white"
+                        stroke-width="3"
+                        stroke-linecap="round"/>
+
+
+                    <circle
+                        cx="37"
+                        cy="36"
+                        r="10"
+                        fill="#F28C28"
+                        stroke="white"
+                        stroke-width="3"/>
+
+
+                    <path
+                        d="M32.5 36L35.5 39L41.5 32.5"
+                        fill="none"
+                        stroke="white"
+                        stroke-width="2.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"/>
+
+                </svg>
+
+            </div>
+
+
+            <div>
+
+                <h2>
+                    ExamPortal
+                </h2>
+
+                <span>
+                    Online Examination
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+
+            <a
+                href="student.html"
+                class="nav-item active">
+
+                <span>▦</span>
+
+                Dashboard
+
+            </a>
+
+
+
+            <a
+                href="my-exams.html"
+                class="nav-item">
+
+                <span>◫</span>
+
+                My Exams
+
+            </a>
+
+
+
+            <a
+                href="result.html"
+                class="nav-item">
+
+                <span>▤</span>
+
+                Results
+
+            </a>
+
+
+
+            <a
+                href="profile.html"
+                class="nav-item">
+
+                <span>◎</span>
+
+                Profile
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- LOGOUT -->
+
+        <a
+            href="index.html"
+            class="logout">
+
+            <span>↪</span>
+
+            Logout
+
+        </a>
+
+
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+
+    <main class="main-content">
+
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+
+            <div class="topbar-title">
+
+                <span>
+                    Student Portal
+                </span>
+
+            </div>
+
+
+
+            <div class="profile">
+
+
+                <div class="profile-avatar">
+                    CF
+                </div>
+
+
+                <div class="profile-info">
+
+                    <strong>
+                        Cynthia Ferrao
+                    </strong>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+
+                <span class="profile-arrow">
+                    ⌄
+                </span>
+
+
+            </div>
+
+
+        </header>
+
+
+
+        <!-- PAGE CONTENT -->
+
+        <section class="content">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome">
+
+
+                <div>
+
+                    <p class="welcome-label">
+                        STUDENT DASHBOARD
+                    </p>
+
+
+                    <h1 id="welcomeMessage">
+                        Good afternoon, Cynthia
+                    </h1>
+
+
+                    <p>
+                        Here's an overview of your examinations and results.
+                    </p>
+
+                </div>
+
+
+
+                <div class="welcome-date">
+
+                    <span>
+                        Today
+                    </span>
+
+
+                    <strong>
+                        15 September 2026
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- STATISTICS -->
+
+            <div class="stats-grid">
+
+
+                <!-- AVAILABLE -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon blue">
+                        ▣
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Available Exams
+                        </span>
+
+
+                        <strong>
+                            01
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- COMPLETED -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon orange">
+                        ✓
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Completed
+                        </span>
+
+
+                        <strong>
+                            05
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- UPCOMING -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon blue">
+                        ◷
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Upcoming
+                        </span>
+
+
+                        <strong>
+                            02
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- AVERAGE -->
+
+                <div class="stat-card">
+
+
+                    <div class="stat-icon orange">
+                        %
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Average Score
+                        </span>
+
+
+                        <strong>
+                            82%
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- UPCOMING EXAMS -->
+
+            <div class="section-header">
+
+
+                <div>
+
+                    <h2>
+                        Upcoming Examinations
+                    </h2>
+
+
+                    <p>
+                        Examinations scheduled for you
+                    </p>
+
+                </div>
+
+
+
+                <button
+                    class="view-all"
+                    onclick="window.location.href='my-exams.html'">
+
+                    View all →
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="exam-list">
+
+
+
+                <!-- SOFTWARE ENGINEERING -->
+
+                <div class="exam-card-dashboard">
+
+
+                    <div class="exam-main">
+
+
+                        <div class="exam-icon">
+                            SE
+                        </div>
+
+
+
+                        <div class="exam-info">
+
+
+                            <div class="exam-title-row">
+
+
+                                <h3>
+                                    Software Engineering
+                                </h3>
+
+
+                                <span
+                                    class="status available">
+
+                                    Live
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <p>
+                                Mid-Semester Examination
+                            </p>
+
+
+
+                            <div class="exam-meta">
+
+
+                                <span>
+                                    ◷ Available Anytime
+                                </span>
+
+
+                                <span>
+                                    ◫ 30 Minutes
+                                </span>
+
+
+                                <span>
+                                    ▣ 5 Questions
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <button
+                        class="start-btn"
+                        onclick="startSoftwareEngineering()">
+
+                        Start Exam →
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- ARTIFICIAL INTELLIGENCE -->
+
+                <div
+                    class="exam-card-dashboard"
+                    id="aiExamCard">
+
+
+                    <div class="exam-main">
+
+
+                        <div class="exam-icon">
+                            AI
+                        </div>
+
+
+
+                        <div class="exam-info">
+
+
+                            <div class="exam-title-row">
+
+
+                                <h3>
+                                    Artificial Intelligence
+                                </h3>
+
+
+                                <span
+                                    class="status upcoming"
+                                    id="aiStatus">
+
+                                    Upcoming
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <p>
+                                Mid-Semester Examination
+                            </p>
+
+
+
+                            <div class="exam-meta">
+
+
+                                <span>
+                                    ◷ 20 September 2026
+                                </span>
+
+
+                                <span>
+                                    ⏰ 2:00 PM
+                                </span>
+
+
+                                <span>
+                                    ◫ 30 Minutes
+                                </span>
+
+
+                                <span>
+                                    ▣ 5 Questions
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <button
+                        class="outline-btn"
+                        id="aiButton"
+                        onclick="handleAIExam()">
+
+                        View Details
+
+                    </button>
+
+
+                </div>
+
+
+
+                <!-- HONOURS IN MATHEMATICS -->
+
+                <div class="exam-card-dashboard">
+
+
+                    <div class="exam-main">
+
+
+                        <div class="exam-icon">
+                            HM
+                        </div>
+
+
+
+                        <div class="exam-info">
+
+
+                            <div class="exam-title-row">
+
+
+                                <h3>
+                                    Honours in Mathematics
+                                </h3>
+
+
+                                <span
+                                    class="status upcoming">
+
+                                    Upcoming
+
+                                </span>
+
+
+                            </div>
+
+
+
+                            <p>
+                                Mid-Semester Examination
+                            </p>
+
+
+
+                            <div class="exam-meta">
+
+
+                                <span>
+                                    ◷ 30 September 2026
+                                </span>
+
+
+                                <span>
+                                    ◫ 45 Minutes
+                                </span>
+
+
+                                <span>
+                                    ▣ 25 Questions
+                                </span>
+
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+
+                    <button
+                        class="outline-btn"
+                        onclick="viewMathDetails()">
+
+                        View Details
+
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- RECENT RESULTS -->
+
+            <div
+                class="section-header results-heading">
+
+
+                <div>
+
+                    <h2>
+                        Recent Results
+                    </h2>
+
+
+                    <p>
+                        Your latest examination performance
+                    </p>
+
+                </div>
+
+
+
+                <button
+                    class="view-all"
+                    onclick="window.location.href='result.html'">
+
+                    View all →
+
+                </button>
+
+
+            </div>
+
+
+
+            <div class="results-card">
+
+
+                <!-- HEADER -->
+
+                <div class="result-row result-head">
+
+
+                    <span>
+                        EXAMINATION
+                    </span>
+
+
+                    <span>
+                        DATE
+                    </span>
+
+
+                    <span>
+                        SCORE
+                    </span>
+
+
+                    <span>
+                        STATUS
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- DBMS -->
+
+                <div class="result-row">
+
+
+                    <span class="result-name">
+                        Database Management Systems
+                    </span>
+
+
+                    <span>
+                        08 Sep 2026
+                    </span>
+
+
+                    <strong>
+                        86 / 100
+                    </strong>
+
+
+                    <span class="result-status passed">
+
+                        Passed
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- COMPUTER NETWORKS -->
+
+                <div class="result-row">
+
+
+                    <span class="result-name">
+                        Computer Networks
+                    </span>
+
+
+                    <span>
+                        02 Sep 2026
+                    </span>
+
+
+                    <strong>
+                        78 / 100
+                    </strong>
+
+
+                    <span class="result-status passed">
+
+                        Passed
+
+                    </span>
+
+
+                </div>
+
+
+
+                <!-- AI -->
+
+                <div class="result-row">
+
+
+                    <span class="result-name">
+                        Artificial Intelligence
+                    </span>
+
+
+                    <span>
+                        28 Aug 2026
+                    </span>
+
+
+                    <strong>
+                        82 / 100
+                    </strong>
+
+
+                    <span class="result-status passed">
+
+                        Passed
+
+                    </span>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ==========================================
+   DYNAMIC WELCOME MESSAGE
+========================================== */
+
+function updateWelcomeMessage() {
+
+    const hour = new Date().getHours();
+
+    let greeting;
+
+
+    if (hour < 12) {
+
+        greeting = "Good morning";
+
+    }
+
+    else if (hour < 18) {
+
+        greeting = "Good afternoon";
+
+    }
+
+    else {
+
+        greeting = "Good evening";
+
+    }
+
+
+    document.getElementById("welcomeMessage").textContent =
+        greeting + ", Cynthia";
+
+}
+
+
+
+updateWelcomeMessage();
+
+
+
+/* ==========================================
+   SOFTWARE ENGINEERING
+========================================== */
+
+function startSoftwareEngineering() {
+
+    localStorage.setItem(
+        "selectedExam",
+        "Software Engineering"
+    );
+
+
+    window.location.href =
+        "exam.html";
+
+}
+
+
+
+/* ==========================================
+   ARTIFICIAL INTELLIGENCE
+========================================== */
+
+function updateAIExam() {
+
+
+    const examDate =
+        new Date("2026-09-20T14:00:00");
+
+
+    const now =
+        new Date();
+
+
+    const attempted =
+        localStorage.getItem(
+            "aiExamAttempted"
+        ) === "true";
+
+
+    const status =
+        document.getElementById(
+            "aiStatus"
+        );
+
+
+    const button =
+        document.getElementById(
+            "aiButton"
+        );
+
+
+
+    /* Already completed */
+
+    if (attempted) {
+
+        status.textContent =
+            "Completed";
+
+        status.className =
+            "status completed";
+
+
+        button.textContent =
+            "View Result";
+
+
+        button.className =
+            "outline-btn";
+
+
+        button.onclick =
+            function() {
+
+                window.location.href =
+                    "result.html";
+
+            };
+
+
+        return;
+
+    }
+
+
+
+    /* Before 20 September 2 PM */
+
+    if (now < examDate) {
+
+        status.textContent =
+            "Upcoming";
+
+        status.className =
+            "status upcoming";
+
+
+        button.textContent =
+            "View Details";
+
+
+        button.className =
+            "outline-btn";
+
+
+        button.onclick =
+            function() {
+
+                handleAIExam();
+
+            };
+
+
+        return;
+
+    }
+
+
+
+    /* From 20 September 2 PM */
+
+    status.textContent =
+        "Live";
+
+    status.className =
+        "status available";
+
+
+    button.textContent =
+        "Start Exam";
+
+
+    button.className =
+        "start-btn";
+
+
+    button.onclick =
+        function() {
+
+            startAIExam();
+
+        };
+
+}
+
+
+
+/* ==========================================
+   START AI EXAM
+========================================== */
+
+function startAIExam() {
+
+    localStorage.setItem(
+        "selectedExam",
+        "Artificial Intelligence"
+    );
+
+
+    window.location.href =
+        "exam.html";
+
+}
+
+
+
+/* ==========================================
+   AI DETAILS
+========================================== */
+
+function handleAIExam() {
+
+    alert(
+
+        "Artificial Intelligence\n\n" +
+
+        "Mid-Semester Examination\n" +
+
+        "Date: 20 September 2026\n" +
+
+        "Time: 2:00 PM\n" +
+
+        "Duration: 30 Minutes\n" +
+
+        "Questions: 5"
+
+    );
+
+}
+
+
+
+/* ==========================================
+   MATHEMATICS DETAILS
+========================================== */
+
+function viewMathDetails() {
+
+    alert(
+
+        "Honours in Mathematics\n\n" +
+
+        "Mid-Semester Examination\n" +
+
+        "Date: 30 September 2026\n" +
+
+        "Duration: 45 Minutes\n" +
+
+        "Questions: 25"
+
+    );
+
+}
+
+
+
+/* ==========================================
+   INITIALISE
+========================================== */
+
+updateAIExam();
+
+
+</script>
+
+
+</body>
+
+</html>

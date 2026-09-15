@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Online Examination | ExamPortal</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css">
+
+</head>
+
+
+<body>
+
+
+<div class="exam-page">
+
+
+    <!-- EXAM HEADER -->
+
+    <header class="exam-header">
+
+
+        <div class="exam-brand">
+
+            <div class="small-logo">
+                ✓
+            </div>
+
+            <div>
+
+                <h2>
+                    ExamPortal
+                </h2>
+
+                <span>
+                    Online Examination
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="exam-title">
+
+            <strong id="examTitle">
+                Software Engineering
+            </strong>
+
+            <span>
+                Mid-Semester Examination
+            </span>
+
+        </div>
+
+
+
+        <div class="timer-box">
+
+            <span>
+                TIME REMAINING
+            </span>
+
+            <strong id="timer">
+                30:00
+            </strong>
+
+        </div>
+
+
+    </header>
+
+
+
+    <!-- EXAM CONTENT -->
+
+    <main class="exam-content">
+
+
+        <!-- PROGRESS -->
+
+        <div class="exam-progress">
+
+
+            <div>
+
+                <span>
+
+                    Question
+
+                    <strong id="questionNumber">
+                        1
+                    </strong>
+
+                    of 5
+
+                </span>
+
+            </div>
+
+
+            <div class="progress-track">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- QUESTION -->
+
+        <div class="question-card">
+
+
+            <div class="question-label">
+                QUESTION 01
+            </div>
+
+
+            <h1 id="question">
+
+                What is the main objective of
+                software engineering?
+
+            </h1>
+
+
+
+            <div class="options">
+
+
+                <label class="option-answer">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="A">
+
+                    <span class="option-letter">
+                        A
+                    </span>
+
+                    <span class="option-text">
+                        To develop software without planning
+                    </span>
+
+                </label>
+
+
+
+                <label class="option-answer">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="B">
+
+                    <span class="option-letter">
+                        B
+                    </span>
+
+                    <span class="option-text">
+                        To develop reliable and efficient software systematically
+                    </span>
+
+                </label>
+
+
+
+                <label class="option-answer">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="C">
+
+                    <span class="option-letter">
+                        C
+                    </span>
+
+                    <span class="option-text">
+                        To increase the size of software
+                    </span>
+
+                </label>
+
+
+
+                <label class="option-answer">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="D">
+
+                    <span class="option-letter">
+                        D
+                    </span>
+
+                    <span class="option-text">
+                        To eliminate software testing
+                    </span>
+
+                </label>
+
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <div class="question-navigation">
+
+
+            <button
+                class="previous-btn"
+                id="previousBtn"
+                onclick="previousQuestion()">
+
+                ← Previous
+
+            </button>
+
+
+
+            <div
+                class="question-dots"
+                id="questionDots">
+
+                <span class="dot active">
+                    1
+                </span>
+
+                <span class="dot">
+                    2
+                </span>
+
+                <span class="dot">
+                    3
+                </span>
+
+                <span class="dot">
+                    4
+                </span>
+
+                <span class="dot">
+                    5
+                </span>
+
+            </div>
+
+
+
+            <button
+                class="next-btn"
+                id="nextBtn"
+                onclick="nextQuestion()">
+
+                Next →
+
+            </button>
+
+
+
+            <button
+                class="submit-exam-btn"
+                id="submitBtn"
+                onclick="submitExam()">
+
+                Submit Exam
+
+            </button>
+
+
+        </div>
+
+
+    </main>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ==========================================
+   SELECTED EXAM
+========================================== */
+
+const selectedExam =
+    localStorage.getItem("selectedExam")
+    || "Software Engineering";
+
+
+
+/* ==========================================
+   SOFTWARE ENGINEERING QUESTIONS
+========================================== */
+
+const softwareEngineeringQuestions = [
+
+    {
+        question:
+            "What is the main objective of software engineering?",
+
+        options: [
+
+            "To develop software without planning",
+
+            "To develop reliable and efficient software systematically",
+
+            "To increase the size of software",
+
+            "To eliminate software testing"
+
+        ],
+
+        answer: "B"
+    },
+
+
+    {
+        question:
+            "Which model follows a sequential approach to software development?",
+
+        options: [
+
+            "Agile Model",
+
+            "Spiral Model",
+
+            "Waterfall Model",
+
+            "Prototype Model"
+
+        ],
+
+        answer: "C"
+    },
+
+
+    {
+        question:
+            "What does SDLC stand for?",
+
+        options: [
+
+            "Software Development Life Cycle",
+
+            "System Design Life Cycle",
+
+            "Software Data Life Cycle",
+
+            "System Development Level Control"
+
+        ],
+
+        answer: "A"
+    },
+
+
+    {
+        question:
+            "Which activity is performed during software testing?",
+
+        options: [
+
+            "Finding defects",
+
+            "Writing advertisements",
+
+            "Hiring employees",
+
+            "Designing hardware"
+
+        ],
+
+        answer: "A"
+    },
+
+
+    {
+        question:
+            "Which methodology focuses on iterative development?",
+
+        options: [
+
+            "Waterfall",
+
+            "Agile",
+
+            "Big Bang",
+
+            "V-Model"
+
+        ],
+
+        answer: "B"
+    }
+
+];
+
+
+
+/* ==========================================
+   ARTIFICIAL INTELLIGENCE QUESTIONS
+========================================== */
+
+const artificialIntelligenceQuestions = [
+
+    {
+        question:
+            "What does AI stand for?",
+
+        options: [
+
+            "Automated Internet",
+
+            "Artificial Intelligence",
+
+            "Advanced Information",
+
+            "Artificial Integration"
+
+        ],
+
+        answer: "B"
+    },
+
+
+    {
+        question:
+            "Which of the following is a branch of Artificial Intelligence?",
+
+        options: [
+
+            "Machine Learning",
+
+            "Web Development",
+
+            "Database Management",
+
+            "Computer Networking"
+
+        ],
+
+        answer: "A"
+    },
+
+
+    {
+        question:
+            "Which algorithm is commonly used for classification?",
+
+        options: [
+
+            "K-Nearest Neighbours",
+
+            "Dijkstra's Algorithm",
+
+            "Prim's Algorithm",
+
+            "Binary Search"
+
+        ],
+
+        answer: "A"
+    },
+
+
+    {
+        question:
+            "Which type of learning uses labelled training data?",
+
+        options: [
+
+            "Unsupervised Learning",
+
+            "Supervised Learning",
+
+            "Random Learning",
+
+            "Reinforcement Testing"
+
+        ],
+
+        answer: "B"
+    },
+
+
+    {
+        question:
+            "Which technique groups similar data points together?",
+
+        options: [
+
+            "Clustering",
+
+            "Compilation",
+
+            "Encryption",
+
+            "Sorting"
+
+        ],
+
+        answer: "A"
+    }
+
+];
+
+
+
+/* ==========================================
+   SELECT QUESTIONS
+========================================== */
+
+let questions;
+
+if (
+    selectedExam ===
+    "Artificial Intelligence"
+) {
+
+    questions =
+        artificialIntelligenceQuestions;
+
+    document.getElementById(
+        "examTitle"
+    ).textContent =
+        "Artificial Intelligence";
+
+    document.title =
+        "Artificial Intelligence Exam | ExamPortal";
+
+} else {
+
+    questions =
+        softwareEngineeringQuestions;
+
+    document.getElementById(
+        "examTitle"
+    ).textContent =
+        "Software Engineering";
+
+    document.title =
+        "Software Engineering Exam | ExamPortal";
+
+}
+
+
+
+/* ==========================================
+   VARIABLES
+========================================== */
+
+let currentQuestion = 0;
+
+let selectedAnswers = {};
+
+let timeLeft = 30 * 60;
+
+let examSubmitted = false;
+
+
+
+/* ==========================================
+   LOAD QUESTION
+========================================== */
+
+function loadQuestion() {
+
+    const q =
+        questions[currentQuestion];
+
+
+    document.getElementById(
+        "questionNumber"
+    ).textContent =
+        currentQuestion + 1;
+
+
+    document.querySelector(
+        ".question-label"
+    ).textContent =
+        "QUESTION " +
+        String(
+            currentQuestion + 1
+        ).padStart(2, "0");
+
+
+    document.getElementById(
+        "question"
+    ).textContent =
+        q.question;
+
+
+
+    const optionLabels =
+        document.querySelectorAll(
+            ".option-answer"
+        );
+
+
+    optionLabels.forEach(
+        (label, index) => {
+
+            label.querySelector(
+                ".option-text"
+            ).textContent =
+                q.options[index];
+
+
+            label.querySelector(
+                "input"
+            ).checked =
+                selectedAnswers[
+                    currentQuestion
+                ] ===
+                String.fromCharCode(
+                    65 + index
+                );
+
+        }
+    );
+
+
+
+    /* Previous button */
+
+    document.getElementById(
+        "previousBtn"
+    ).style.visibility =
+
+        currentQuestion === 0
+        ? "hidden"
+        : "visible";
+
+
+
+    /* Last question */
+
+    if (
+        currentQuestion ===
+        questions.length - 1
+    ) {
+
+        document.getElementById(
+            "nextBtn"
+        ).style.display =
+            "none";
+
+
+        document.getElementById(
+            "submitBtn"
+        ).style.display =
+            "block";
+
+    } else {
+
+        document.getElementById(
+            "nextBtn"
+        ).style.display =
+            "block";
+
+
+        document.getElementById(
+            "submitBtn"
+        ).style.display =
+            "none";
+
+    }
+
+
+
+    /* Progress */
+
+    document.getElementById(
+        "progressFill"
+    ).style.width =
+
+        (
+            (currentQuestion + 1)
+            /
+            questions.length
+        ) * 100 + "%";
+
+
+
+    /* Question dots */
+
+    document.querySelectorAll(
+        ".dot"
+    ).forEach(
+        (dot, index) => {
+
+            dot.classList.toggle(
+                "active",
+                index === currentQuestion
+            );
+
+
+            dot.classList.toggle(
+                "answered",
+                selectedAnswers[index]
+                !== undefined
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================
+   SAVE ANSWER
+========================================== */
+
+document.querySelectorAll(
+    'input[name="answer"]'
+).forEach(
+    input => {
+
+        input.addEventListener(
+            "change",
+            function() {
+
+                selectedAnswers[
+                    currentQuestion
+                ] =
+                    this.value;
+
+
+                document.querySelectorAll(
+                    ".dot"
+                )[currentQuestion]
+                    .classList.add(
+                        "answered"
+                    );
+
+            }
+        );
+
+    }
+);
+
+
+
+/* ==========================================
+   NEXT QUESTION
+========================================== */
+
+function nextQuestion() {
+
+    const selected =
+        document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+
+    if (selected) {
+
+        selectedAnswers[
+            currentQuestion
+        ] =
+            selected.value;
+
+    }
+
+
+    if (
+        currentQuestion <
+        questions.length - 1
+    ) {
+
+        currentQuestion++;
+
+        loadQuestion();
+
+    }
+
+}
+
+
+
+/* ==========================================
+   PREVIOUS QUESTION
+========================================== */
+
+function previousQuestion() {
+
+    const selected =
+        document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+
+    if (selected) {
+
+        selectedAnswers[
+            currentQuestion
+        ] =
+            selected.value;
+
+    }
+
+
+    if (currentQuestion > 0) {
+
+        currentQuestion--;
+
+        loadQuestion();
+
+    }
+
+}
+
+
+
+/* ==========================================
+   SUBMIT EXAM
+========================================== */
+
+function submitExam() {
+
+    if (examSubmitted) {
+        return;
+    }
+
+
+    const selected =
+        document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+
+    if (selected) {
+
+        selectedAnswers[
+            currentQuestion
+        ] =
+            selected.value;
+
+    }
+
+
+    let score = 0;
+
+
+    questions.forEach(
+        (q, index) => {
+
+            if (
+                selectedAnswers[index]
+                ===
+                q.answer
+            ) {
+
+                score++;
+
+            }
+
+        }
+    );
+
+
+    examSubmitted = true;
+
+
+
+    /* AI result */
+
+    if (
+        selectedExam ===
+        "Artificial Intelligence"
+    ) {
+
+        localStorage.setItem(
+            "aiExamAttempted",
+            "true"
+        );
+
+
+        localStorage.setItem(
+            "aiExamScore",
+            score
+        );
+
+
+        localStorage.setItem(
+            "aiExamTotal",
+            questions.length
+        );
+
+    }
+
+
+    /* Software Engineering result */
+
+    else {
+
+        localStorage.setItem(
+            "examScore",
+            score
+        );
+
+
+        localStorage.setItem(
+            "examTotal",
+            questions.length
+        );
+
+    }
+
+
+
+    localStorage.setItem(
+        "lastExam",
+        selectedExam
+    );
+
+
+    window.location.href =
+        "result.html";
+
+}
+
+
+
+/* ==========================================
+   TIMER
+========================================== */
+
+function startTimer() {
+
+    const timer =
+        setInterval(
+            function() {
+
+                if (examSubmitted) {
+
+                    clearInterval(timer);
+
+                    return;
+
+                }
+
+
+                let minutes =
+                    Math.floor(
+                        timeLeft / 60
+                    );
+
+
+                let seconds =
+                    timeLeft % 60;
+
+
+                document.getElementById(
+                    "timer"
+                ).textContent =
+
+                    String(minutes)
+                        .padStart(2, "0")
+
+                    +
+
+                    ":"
+
+                    +
+
+                    String(seconds)
+                        .padStart(2, "0");
+
+
+                timeLeft--;
+
+
+
+                if (timeLeft < 0) {
+
+                    clearInterval(timer);
+
+                    submitExam();
+
+                }
+
+            },
+
+            1000
+
+        );
+
+}
+
+
+
+/* ==========================================
+   START EXAM
+========================================== */
+
+loadQuestion();
+
+startTimer();
+
+
+</script>
+
+
+</body>
+
+</html>

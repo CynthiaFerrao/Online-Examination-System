@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Examination System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-page">
+
+        <div class="login-left">
+            <div class="brand">
+                <div class="brand-icon">✓</div>
+                <h1>Online Examination</h1>
+                <p>Simple. Secure. Smart.</p>
+            </div>
+
+            <div class="illustration">
+                <div class="exam-card">
+                    <div class="card-top">
+                        <span>EXAM</span>
+                        <span class="check">✓</span>
+                    </div>
+                    <div class="line long"></div>
+                    <div class="line medium"></div>
+                    <div class="option">✓ &nbsp; Answer submitted</div>
+                    <div class="option">○ &nbsp; Next question</div>
+                    <div class="option">○ &nbsp; Review answer</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="login-right">
+
+            <div class="login-box">
+                <div class="mobile-logo">
+                    <div class="brand-icon">✓</div>
+                </div>
+
+                <h2>Welcome Back!</h2>
+                <p class="login-subtitle">Login to continue to your examination portal.</p>
+
+                <form id="loginForm">
+
+                    <label for="role">Login as</label>
+                    <select id="role">
+                        <option value="student">Student</option>
+                        <option value="examiner">Examiner</option>
+                        <option value="admin">Admin</option>
+                    </select>
+
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+
+                    <button type="submit">Login <span>→</span></button>
+
+                </form>
+
+                <p class="login-note">© 2026 Online Examination System</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

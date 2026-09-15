@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | ExamPortal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="portal-logo">
+
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+
+                    <rect x="7" y="5" width="32" height="39" rx="7"
+                          fill="#176B8F"/>
+
+                    <path d="M15 15H31"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+
+                    <path d="M15 22H31"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+
+                    <path d="M15 29H23"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+
+                    <circle cx="37" cy="36" r="10"
+                            fill="#F28C28"
+                            stroke="white"
+                            stroke-width="3"/>
+
+                    <path d="M32.5 36L35.5 39L41.5 32.5"
+                          fill="none"
+                          stroke="white"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+
+                </svg>
+
+            </div>
+
+            <div>
+                <h2>ExamPortal</h2>
+                <span>Online Examination</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="student.html" class="nav-item">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="my-exams.html" class="nav-item">
+                <span>◫</span>
+                My Exams
+            </a>
+
+            <a href="result.html" class="nav-item">
+                <span>▤</span>
+                Results
+            </a>
+
+            <a href="profile.html" class="nav-item active">
+                <span>◎</span>
+                Profile
+            </a>
+
+        </nav>
+
+
+        <a href="index.html" class="logout">
+            <span>↪</span>
+            Logout
+        </a>
+
+    </aside>
+
+
+
+    <main class="main-content">
+
+
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+            <div class="topbar-title">
+                Student Portal
+            </div>
+
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    CF
+                </div>
+
+                <div class="profile-info">
+
+                    <strong id="topName">
+                        Cynthia Ferrao
+                    </strong>
+
+                    <span>
+                        Student
+                    </span>
+
+                </div>
+
+                <span class="profile-arrow">
+                    ⌄
+                </span>
+
+            </div>
+
+        </header>
+
+
+
+        <section class="content">
+
+
+            <!-- PAGE HEADING -->
+
+            <div class="welcome">
+
+                <div>
+
+                    <p class="welcome-label">
+                        STUDENT PROFILE
+                    </p>
+
+                    <h1>
+                        My Profile
+                    </h1>
+
+                    <p>
+                        View and manage your personal and academic information.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PROFILE -->
+
+            <div class="results-card" style="padding:30px;">
+
+
+                <!-- PROFILE HEADER -->
+
+                <div style="
+                    display:flex;
+                    align-items:center;
+                    justify-content:space-between;
+                    gap:20px;
+                    padding-bottom:25px;
+                    border-bottom:1px solid #edf2f5;
+                ">
+
+
+                    <div style="
+                        display:flex;
+                        align-items:center;
+                        gap:20px;
+                    ">
+
+
+                        <div style="
+                            width:75px;
+                            height:75px;
+                            border-radius:50%;
+                            background:#e1f4fb;
+                            color:#176b8f;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            font-size:22px;
+                            font-weight:700;
+                        ">
+
+                            CF
+
+                        </div>
+
+
+                        <div>
+
+                            <h2
+                                id="profileName"
+                                style="
+                                    color:#25475d;
+                                    font-size:21px;
+                                    margin-bottom:5px;
+                                ">
+
+                                Cynthia Ferrao
+
+                            </h2>
+
+
+                            <p style="
+                                color:#8a9ba5;
+                                font-size:12px;
+                            ">
+
+                                Student • Computer Engineering
+
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        id="editButton"
+                        onclick="enableEdit()"
+                        style="
+                            padding:11px 22px;
+                            background:#176b8f;
+                            color:white;
+                            border:none;
+                            border-radius:7px;
+                            cursor:pointer;
+                            font-weight:600;
+                        ">
+
+                        Edit Profile
+
+                    </button>
+
+                </div>
+
+
+
+                <!-- VIEW PROFILE -->
+
+                <div
+                    id="profileView"
+                    style="
+                        display:grid;
+                        grid-template-columns:1fr 1fr;
+                        gap:28px;
+                        padding-top:30px;
+                    ">
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            FULL NAME
+                        </span>
+
+                        <strong id="viewName">
+                            Cynthia Ferrao
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            ROLE
+                        </span>
+
+                        <strong>
+                            Student
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            STUDENT ID
+                        </span>
+
+                        <strong>
+                            XIE2026CS01
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            DEPARTMENT
+                        </span>
+
+                        <strong>
+                            Computer Engineering
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            YEAR
+                        </span>
+
+                        <strong>
+                            Third Year
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            EMAIL
+                        </span>
+
+                        <strong id="viewEmail">
+                            cynthia@example.com
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            PHONE
+                        </span>
+
+                        <strong id="viewPhone">
+                            +91 98765 43210
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span class="profile-label">
+                            OVERALL RESULT
+                        </span>
+
+                        <strong>
+                            82%
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- EDIT PROFILE -->
+
+                <div
+                    id="editForm"
+                    style="
+                        display:none;
+                        padding-top:30px;
+                    ">
+
+
+                    <div style="
+                        display:grid;
+                        grid-template-columns:1fr 1fr;
+                        gap:22px;
+                    ">
+
+
+                        <!-- NAME -->
+
+                        <div>
+
+                            <label class="edit-label">
+                                Full Name
+                            </label>
+
+                            <input
+                                id="nameInput"
+                                type="text"
+                                value="Cynthia Ferrao"
+                                class="profile-input">
+
+                        </div>
+
+
+                        <!-- EMAIL -->
+
+                        <div>
+
+                            <label class="edit-label">
+                                Email Address
+                            </label>
+
+                            <input
+                                id="emailInput"
+                                type="email"
+                                value="cynthia@example.com"
+                                class="profile-input">
+
+                        </div>
+
+
+                        <!-- PHONE -->
+
+                        <div>
+
+                            <label class="edit-label">
+                                Phone Number
+                            </label>
+
+                            <input
+                                id="phoneInput"
+                                type="text"
+                                value="+91 98765 43210"
+                                class="profile-input">
+
+                        </div>
+
+
+                        <!-- STUDENT ID -->
+
+                        <div>
+
+                            <label class="edit-label">
+                                Student ID
+                            </label>
+
+                            <input
+                                type="text"
+                                value="XIE2026CS01"
+                                disabled
+                                class="profile-input disabled-input">
+
+                        </div>
+
+
+                        <!-- DEPARTMENT -->
+
+                        <div>
+
+                            <label class="edit-label">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Computer Engineering"
+                                disabled
+                                class="profile-input disabled-input">
+
+                        </div>
+
+
+                        <!-- YEAR -->
+
+                        <div>
+
+                            <label class="edit-label">
+                                Year
+                            </label>
+
+                            <input
+                                type="text"
+                                value="Third Year"
+                                disabled
+                                class="profile-input disabled-input">
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- BUTTONS -->
+
+                    <div style="
+                        display:flex;
+                        justify-content:flex-end;
+                        gap:12px;
+                        margin-top:28px;
+                    ">
+
+
+                        <button
+                            onclick="cancelEdit()"
+                            style="
+                                padding:11px 22px;
+                                border:1px solid #d8e1e6;
+                                background:white;
+                                color:#536d7c;
+                                border-radius:7px;
+                                cursor:pointer;
+                                font-weight:600;
+                            ">
+
+                            Cancel
+
+                        </button>
+
+
+                        <button
+                            onclick="saveProfile()"
+                            style="
+                                padding:11px 22px;
+                                background:#176b8f;
+                                color:white;
+                                border:none;
+                                border-radius:7px;
+                                cursor:pointer;
+                                font-weight:600;
+                            ">
+
+                            Save Changes
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACADEMIC OVERVIEW -->
+
+            <div class="section-header results-heading">
+
+                <div>
+
+                    <h2>
+                        Academic Overview
+                    </h2>
+
+                    <p>
+                        Your overall examination performance
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="stats-grid">
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Exams Completed
+                        </span>
+
+                        <strong>
+                            05
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        %
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Overall Result
+                        </span>
+
+                        <strong>
+                            82%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ★
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Best Score
+                        </span>
+
+                        <strong>
+                            92%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Exams Passed
+                        </span>
+
+                        <strong>
+                            05
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<script>
+
+function enableEdit() {
+
+    document.getElementById("profileView").style.display = "grid";
+
+    document.getElementById("profileView").style.display = "none";
+
+    document.getElementById("editForm").style.display = "block";
+
+    document.getElementById("editButton").style.display = "none";
+
+}
+
+
+
+function cancelEdit() {
+
+    document.getElementById("profileView").style.display = "grid";
+
+    document.getElementById("editForm").style.display = "none";
+
+    document.getElementById("editButton").style.display = "block";
+
+}
+
+
+
+function saveProfile() {
+
+    const name =
+        document.getElementById("nameInput").value.trim();
+
+    const email =
+        document.getElementById("emailInput").value.trim();
+
+    const phone =
+        document.getElementById("phoneInput").value.trim();
+
+
+    if (name === "" || email === "" || phone === "") {
+
+        alert("Please fill in all editable fields.");
+
+        return;
+
+    }
+
+
+    document.getElementById("profileName").textContent =
+        name;
+
+    document.getElementById("viewName").textContent =
+        name;
+
+    document.getElementById("viewEmail").textContent =
+        email;
+
+    document.getElementById("viewPhone").textContent =
+        phone;
+
+    document.getElementById("topName").textContent =
+        name;
+
+
+    document.getElementById("profileView").style.display =
+        "grid";
+
+    document.getElementById("editForm").style.display =
+        "none";
+
+    document.getElementById("editButton").style.display =
+        "block";
+
+
+    alert("Profile updated successfully!");
+
+}
+
+</script>
+
+
+</body>
+</html>

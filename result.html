@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | ExamPortal</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="portal-logo">
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+
+                    <rect x="7" y="5" width="32" height="39" rx="7" fill="#176B8F"/>
+
+                    <path d="M15 15H31"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+
+                    <path d="M15 22H31"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+
+                    <path d="M15 29H23"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"/>
+
+                    <circle cx="37" cy="36" r="10"
+                            fill="#F28C28"
+                            stroke="white"
+                            stroke-width="3"/>
+
+                    <path d="M32.5 36L35.5 39L41.5 32.5"
+                          fill="none"
+                          stroke="white"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+
+                </svg>
+            </div>
+
+            <div>
+                <h2>ExamPortal</h2>
+                <span>Online Examination</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="student.html" class="nav-item">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="my-exams.html" class="nav-item">
+                <span>◫</span>
+                My Exams
+            </a>
+
+            <a href="result.html" class="nav-item active">
+                <span>◎</span>
+                Results
+            </a>
+
+            <a href="profile.html" class="nav-item">
+                <span>◎</span>
+                Profile
+            </a>
+
+        </nav>
+
+
+        <a href="index.html" class="logout">
+            <span>↪</span>
+            Logout
+        </a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+            <div class="topbar-title">
+                Student Portal
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    CF
+                </div>
+
+                <div class="profile-info">
+                    <strong>Cynthia Ferrao</strong>
+                    <span>Third Year</span>
+                </div>
+
+                <span class="profile-arrow">
+                    ⌄
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <section class="content">
+
+
+            <!-- WELCOME -->
+
+            <div class="welcome">
+
+                <div>
+
+                    <p class="welcome-label">
+                        EXAMINATION RESULTS
+                    </p>
+
+                    <h1>
+                        My Results
+                    </h1>
+
+                    <p>
+                        View your examination performance and results.
+                    </p>
+
+                </div>
+
+                <div class="welcome-date">
+
+                    <span>
+                        Latest Result
+                    </span>
+
+                    <strong id="resultDate">
+                        15 September 2026
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESULT SUMMARY -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2 id="examName">
+                        Software Engineering
+                    </h2>
+
+                    <p>
+                        Mid-Semester Examination
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+
+                <!-- SCORE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Score
+                        </span>
+
+                        <strong id="score">
+                            0 / 5
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PERCENTAGE -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        %
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Percentage
+                        </span>
+
+                        <strong id="percentage">
+                            0%
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TOTAL QUESTIONS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ▣
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total Questions
+                        </span>
+
+                        <strong id="totalQuestions">
+                            05
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- STATUS -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ✓
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Status
+                        </span>
+
+                        <strong id="status">
+                            Passed
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- RESULT HISTORY -->
+
+            <div class="section-header results-heading">
+
+                <div>
+
+                    <h2>
+                        Result History
+                    </h2>
+
+                    <p>
+                        Your recently completed examinations
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="results-card">
+
+
+                <div class="result-row result-head">
+
+                    <span>
+                        EXAMINATION
+                    </span>
+
+                    <span>
+                        DATE
+                    </span>
+
+                    <span>
+                        SCORE
+                    </span>
+
+                    <span>
+                        STATUS
+                    </span>
+
+                </div>
+
+
+                <!-- LATEST RESULT -->
+
+                <div class="result-row">
+
+                    <span
+                        class="result-name"
+                        id="historyExam">
+
+                        Software Engineering
+
+                    </span>
+
+                    <span id="historyDate">
+                        15 Sept 2026
+                    </span>
+
+                    <strong id="tableScore">
+                        0 / 5
+                    </strong>
+
+                    <span
+                        class="result-status passed"
+                        id="tableStatus">
+
+                        Passed
+
+                    </span>
+
+                </div>
+
+
+                <!-- OLD RESULT -->
+
+                <div class="result-row">
+
+                    <span class="result-name">
+                        Database Management Systems
+                    </span>
+
+                    <span>
+                        05 Sept 2026
+                    </span>
+
+                    <strong>
+                        86 / 100
+                    </strong>
+
+                    <span class="result-status passed">
+                        Passed
+                    </span>
+
+                </div>
+
+
+                <!-- OLD RESULT -->
+
+                <div class="result-row">
+
+                    <span class="result-name">
+                        Computer Networks
+                    </span>
+
+                    <span>
+                        01 Sept 2026
+                    </span>
+
+                    <strong>
+                        78 / 100
+                    </strong>
+
+                    <span class="result-status passed">
+                        Passed
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- RESULT INFORMATION -->
+
+            <div class="section-header results-heading">
+
+                <div>
+
+                    <h2>
+                        Result Information
+                    </h2>
+
+                    <p>
+                        Details of your latest examination
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="results-card">
+
+
+                <div class="result-row">
+
+                    <span class="result-name">
+                        Examination
+                    </span>
+
+                    <strong id="infoExam">
+                        Software Engineering
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span class="result-name">
+                        Examination Type
+                    </span>
+
+                    <strong>
+                        Mid-Semester Examination
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span class="result-name">
+                        Date
+                    </span>
+
+                    <strong id="infoDate">
+                        15 September 2026
+                    </strong>
+
+                </div>
+
+
+                <div class="result-row">
+
+                    <span class="result-name">
+                        Student
+                    </span>
+
+                    <strong>
+                        Cynthia Ferrao
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+
+/* =========================================
+   GET LAST SUBMITTED EXAM
+========================================= */
+
+const lastExam =
+    localStorage.getItem("lastExam") || "Software Engineering";
+
+
+let score = 0;
+let total = 5;
+
+
+/* =========================================
+   GET CORRECT SCORE
+========================================= */
+
+if (lastExam === "Artificial Intelligence") {
+
+    score =
+        Number(localStorage.getItem("aiExamScore")) || 0;
+
+    total =
+        Number(localStorage.getItem("aiExamTotal")) || 5;
+
+}
+else {
+
+    score =
+        Number(localStorage.getItem("examScore")) || 0;
+
+    total =
+        Number(localStorage.getItem("examTotal")) || 5;
+
+}
+
+
+/* =========================================
+   CALCULATE PERCENTAGE
+========================================= */
+
+const percentage =
+    total > 0
+        ? Math.round((score / total) * 100)
+        : 0;
+
+
+const passed =
+    percentage >= 40;
+
+
+/* =========================================
+   EXAM NAME
+========================================= */
+
+document.getElementById("examName").textContent =
+    lastExam;
+
+document.getElementById("historyExam").textContent =
+    lastExam;
+
+document.getElementById("infoExam").textContent =
+    lastExam;
+
+
+/* =========================================
+   SCORE
+========================================= */
+
+document.getElementById("score").textContent =
+    score + " / " + total;
+
+document.getElementById("tableScore").textContent =
+    score + " / " + total;
+
+
+/* =========================================
+   PERCENTAGE
+========================================= */
+
+document.getElementById("percentage").textContent =
+    percentage + "%";
+
+
+/* =========================================
+   TOTAL QUESTIONS
+========================================= */
+
+document.getElementById("totalQuestions").textContent =
+    String(total).padStart(2, "0");
+
+
+/* =========================================
+   PASS / FAIL
+========================================= */
+
+document.getElementById("status").textContent =
+    passed ? "Passed" : "Failed";
+
+document.getElementById("tableStatus").textContent =
+    passed ? "Passed" : "Failed";
+
+document.getElementById("tableStatus").className =
+    passed
+        ? "result-status passed"
+        : "result-status failed";
+
+
+/* =========================================
+   DATE
+========================================= */
+
+document.getElementById("resultDate").textContent =
+    "15 September 2026";
+
+document.getElementById("historyDate").textContent =
+    "15 Sept 2026";
+
+document.getElementById("infoDate").textContent =
+    "15 September 2026";
+
+
+</script>
+
+</body>
+</html>

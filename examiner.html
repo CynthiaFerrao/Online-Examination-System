@@ -1,0 +1,1814 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Examiner Dashboard | ExamPortal</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        .portal-section {
+            display: none;
+        }
+
+        .portal-section.active-section {
+            display: block;
+        }
+
+        .management-form {
+            background: white;
+            border: 1px solid #e3eaee;
+            border-radius: 10px;
+            padding: 24px;
+            margin-top: 20px;
+            box-shadow: 0 4px 14px rgba(30, 55, 70, 0.06);
+        }
+
+        .management-form h3 {
+            margin: 0 0 6px;
+            color: #29485a;
+        }
+
+        .management-form p {
+            color: #7a8b95;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            font-size: 12px;
+            font-weight: 600;
+            color: #536b78;
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group select {
+            padding: 11px 12px;
+            border: 1px solid #d7e1e6;
+            border-radius: 7px;
+            font-size: 13px;
+            outline: none;
+            color: #36556a;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            border-color: #176B8F;
+        }
+
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .cancel-btn {
+            padding: 10px 18px;
+            border: 1px solid #d5dfe4;
+            background: white;
+            color: #637680;
+            border-radius: 7px;
+            cursor: pointer;
+            font-size: 13px;
+        }
+
+        .cancel-btn:hover {
+            background: #f5f7f8;
+        }
+
+        .exam-details {
+            background: white;
+            border: 1px solid #e3eaee;
+            border-radius: 10px;
+            padding: 22px;
+            margin-top: 20px;
+        }
+
+        .exam-details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 18px;
+        }
+
+        .detail-box {
+            background: #f7fafb;
+            padding: 14px;
+            border-radius: 7px;
+        }
+
+        .detail-box span {
+            display: block;
+            font-size: 11px;
+            color: #82929b;
+            margin-bottom: 5px;
+        }
+
+        .detail-box strong {
+            color: #36556a;
+            font-size: 14px;
+        }
+
+        .tab-title {
+            margin-bottom: 22px;
+        }
+
+        .tab-title h2 {
+            margin-bottom: 5px;
+        }
+
+        .tab-title p {
+            color: #7a8b95;
+            font-size: 13px;
+        }
+
+        .empty-message {
+            background: white;
+            border: 1px solid #e3eaee;
+            border-radius: 10px;
+            padding: 35px;
+            text-align: center;
+            color: #7a8b95;
+        }
+
+        .cancelled-card {
+            opacity: 0.7;
+        }
+
+        .cancelled-status {
+            background: #f3e5e5 !important;
+            color: #a14c4c !important;
+        }
+
+        @media (max-width: 700px) {
+            .form-grid,
+            .exam-details-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="dashboard">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="portal-logo">
+                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="7" y="5" width="32" height="39" rx="7" fill="#176B8F"/>
+                    <path d="M15 15H31" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M15 22H31" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <path d="M15 29H23" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                    <circle cx="37" cy="36" r="10" fill="#F28C28" stroke="white" stroke-width="3"/>
+                    <path d="M32.5 36L35.5 39L41.5 32.5"
+                          fill="none"
+                          stroke="white"
+                          stroke-width="2.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"/>
+                </svg>
+            </div>
+
+            <div>
+                <h2>ExamPortal</h2>
+                <span>Online Examination</span>
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="#" class="nav-item active" id="dashboardTab" onclick="showSection('dashboardSection', this)">
+                <span>▦</span>
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-item" onclick="showSection('examsSection', this); renderExams()">
+                <span>◫</span>
+                My Exams
+            </a>
+
+            <a href="#" class="nav-item" onclick="showSection('submissionsSection', this)">
+                <span>▤</span>
+                Submissions
+            </a>
+
+            <a href="#" class="nav-item" onclick="showSection('resultsSection', this)">
+                <span>◎</span>
+                Results
+            </a>
+
+        </nav>
+
+
+        <a href="index.html" class="logout">
+            <span>↪</span>
+            Logout
+        </a>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="mobile-menu">
+                ☰
+            </div>
+
+            <div class="topbar-title">
+                Examiner Portal
+            </div>
+
+            <div class="profile">
+
+                <div class="profile-avatar">
+                    CF
+                </div>
+
+                <div class="profile-info">
+                    <strong>Cynthia Ferrao</strong>
+                    <span>Examiner</span>
+                </div>
+
+                <span class="profile-arrow">
+                    ⌄
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <section class="content">
+
+
+            <!-- ================= DASHBOARD ================= -->
+
+            <div id="dashboardSection" class="portal-section active-section">
+
+                <div class="welcome">
+
+                    <div>
+
+                        <p class="welcome-label">
+                            EXAMINER DASHBOARD
+                        </p>
+
+                        <h1 id="welcomeMessage">
+                            Good afternoon, Cynthia Ferrao
+                        </h1>
+
+                        <p>
+                            Manage examinations, submissions and student results.
+                        </p>
+
+                    </div>
+
+                    <div class="welcome-date">
+
+                        <span>
+                            Today
+                        </span>
+
+                        <strong>
+                            15 September 2026
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            ▣
+                        </div>
+
+                        <div>
+                            <span>Total Exams</span>
+                            <strong>08</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            ◷
+                        </div>
+
+                        <div>
+                            <span>Upcoming</span>
+                            <strong id="upcomingCount">02</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            ✓
+                        </div>
+
+                        <div>
+                            <span>Completed</span>
+                            <strong>05</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            %
+                        </div>
+
+                        <div>
+                            <span>Submissions</span>
+                            <strong>126</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Examination Management</h2>
+                        <p>Create and manage your examinations</p>
+                    </div>
+
+                    <button class="start-btn" onclick="openScheduleForm()">
+                        + Schedule Exam
+                    </button>
+
+                </div>
+
+
+                <div class="exam-list" id="dashboardExamList">
+                </div>
+
+
+                <div class="section-header results-heading">
+
+                    <div>
+
+                        <h2>
+                            Recent Submissions
+                        </h2>
+
+                        <p>
+                            Latest student examination submissions
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="view-all"
+                        onclick="showSection('submissionsSection', document.querySelectorAll('.nav-item')[2])">
+                        View all →
+                    </button>
+
+                </div>
+
+
+                <div class="results-card">
+
+                    <div class="result-row result-head">
+
+                        <span>STUDENT</span>
+                        <span>EXAMINATION</span>
+                        <span>SCORE</span>
+                        <span>STATUS</span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Software Engineering
+                        </span>
+
+                        <strong>
+                            86 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Evaluated
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Artificial Intelligence
+                        </span>
+
+                        <strong>
+                            82 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Evaluated
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Computer Networks
+                        </span>
+
+                        <strong>
+                            91 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Evaluated
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= MY EXAMS ================= -->
+
+            <div id="examsSection" class="portal-section">
+
+                <div class="tab-title">
+
+                    <h2>My Exams</h2>
+
+                    <p>
+                        View and manage all examinations created by Cynthia Ferrao.
+                    </p>
+
+                </div>
+
+                <div class="section-header">
+
+                    <div>
+                        <h2>Examination Management</h2>
+                        <p>Manage scheduled, live and cancelled examinations.</p>
+                    </div>
+
+                    <button class="start-btn" onclick="openScheduleForm()">
+                        + Schedule Exam
+                    </button>
+
+                </div>
+
+                <div class="exam-list" id="allExamList">
+                </div>
+
+            </div>
+
+
+            <!-- ================= SUBMISSIONS ================= -->
+
+            <div id="submissionsSection" class="portal-section">
+
+                <div class="tab-title">
+
+                    <h2>Submissions</h2>
+
+                    <p>
+                        View student examination submissions.
+                    </p>
+
+                </div>
+
+
+                <div class="results-card">
+
+                    <div class="result-row result-head">
+
+                        <span>STUDENT</span>
+                        <span>EXAMINATION</span>
+                        <span>SCORE</span>
+                        <span>STATUS</span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Software Engineering
+                        </span>
+
+                        <strong>
+                            86 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Evaluated
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Artificial Intelligence
+                        </span>
+
+                        <strong>
+                            82 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Evaluated
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Honours in Mathematics
+                        </span>
+
+                        <strong>
+                            88 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Evaluated
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RESULTS ================= -->
+
+            <div id="resultsSection" class="portal-section">
+
+                <div class="tab-title">
+
+                    <h2>Results</h2>
+
+                    <p>
+                        View student examination performance and results.
+                    </p>
+
+                </div>
+
+
+                <div class="stats-grid">
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            %
+                        </div>
+
+                        <div>
+                            <span>Average Score</span>
+                            <strong>85%</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            ✓
+                        </div>
+
+                        <div>
+                            <span>Passed</span>
+                            <strong>05</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon blue">
+                            ▣
+                        </div>
+
+                        <div>
+                            <span>Evaluated</span>
+                            <strong>126</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="stat-card">
+
+                        <div class="stat-icon orange">
+                            ★
+                        </div>
+
+                        <div>
+                            <span>Best Score</span>
+                            <strong>92%</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="section-header results-heading">
+
+                    <div>
+
+                        <h2>
+                            Student Results
+                        </h2>
+
+                        <p>
+                            Examination-wise student performance.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="results-card">
+
+                    <div class="result-row result-head">
+
+                        <span>STUDENT</span>
+                        <span>EXAMINATION</span>
+                        <span>SCORE</span>
+                        <span>STATUS</span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Software Engineering
+                        </span>
+
+                        <strong>
+                            86 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Passed
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Artificial Intelligence
+                        </span>
+
+                        <strong>
+                            82 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Passed
+                        </span>
+
+                    </div>
+
+
+                    <div class="result-row">
+
+                        <span class="result-name">
+                            Cynthia Ferrao
+                        </span>
+
+                        <span>
+                            Honours in Mathematics
+                        </span>
+
+                        <strong>
+                            88 / 100
+                        </strong>
+
+                        <span class="result-status passed">
+                            Passed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SCHEDULE FORM ================= -->
+
+            <div id="scheduleFormSection" class="portal-section">
+
+                <div class="tab-title">
+
+                    <h2>Schedule Examination</h2>
+
+                    <p>
+                        Create a new examination.
+                    </p>
+
+                </div>
+
+
+                <div class="management-form">
+
+                    <h3>New Examination</h3>
+
+                    <p>
+                        Enter the examination details below.
+                    </p>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group full">
+
+                            <label>Examination Name</label>
+
+                            <input
+                                type="text"
+                                id="newExamName"
+                                placeholder="Enter examination name">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Date</label>
+
+                            <input
+                                type="date"
+                                id="newExamDate">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Time</label>
+
+                            <input
+                                type="time"
+                                id="newExamTime">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Duration (Minutes)</label>
+
+                            <input
+                                type="number"
+                                id="newExamDuration"
+                                min="1"
+                                placeholder="30">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Number of Questions</label>
+
+                            <input
+                                type="number"
+                                id="newExamQuestions"
+                                min="1"
+                                placeholder="5">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button class="cancel-btn" onclick="showSection('dashboardSection', document.querySelectorAll('.nav-item')[0])">
+                            Cancel
+                        </button>
+
+                        <button class="start-btn" onclick="saveNewExam()">
+                            Schedule Exam
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= POSTPONE FORM ================= -->
+
+            <div id="postponeFormSection" class="portal-section">
+
+                <div class="tab-title">
+
+                    <h2>Postpone Examination</h2>
+
+                    <p>
+                        Change the date and time of the selected examination.
+                    </p>
+
+                </div>
+
+
+                <div class="management-form">
+
+                    <h3 id="postponeExamName">
+                        Examination
+                    </h3>
+
+                    <p>
+                        Select the new date and time.
+                    </p>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label>Current Date</label>
+
+                            <input
+                                type="text"
+                                id="currentExamDate"
+                                disabled>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>Current Time</label>
+
+                            <input
+                                type="text"
+                                id="currentExamTime"
+                                disabled>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>New Date</label>
+
+                            <input
+                                type="date"
+                                id="postponeDate">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>New Time</label>
+
+                            <input
+                                type="time"
+                                id="postponeTime">
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button class="cancel-btn" onclick="showSection('examsSection', document.querySelectorAll('.nav-item')[1])">
+                            Cancel
+                        </button>
+
+                        <button class="start-btn" onclick="savePostponedExam()">
+                            Save Changes
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DETAILS ================= -->
+
+            <div id="detailsSection" class="portal-section">
+
+                <div class="tab-title">
+
+                    <h2>Examination Details</h2>
+
+                    <p>
+                        Complete information about the selected examination.
+                    </p>
+
+                </div>
+
+
+                <div class="exam-details">
+
+                    <h3 id="detailsExamName">
+                        Examination
+                    </h3>
+
+                    <div class="exam-details-grid">
+
+                        <div class="detail-box">
+                            <span>Examiner</span>
+                            <strong>Cynthia Ferrao</strong>
+                        </div>
+
+                        <div class="detail-box">
+                            <span>Status</span>
+                            <strong id="detailsStatus">Upcoming</strong>
+                        </div>
+
+                        <div class="detail-box">
+                            <span>Date</span>
+                            <strong id="detailsDate">-</strong>
+                        </div>
+
+                        <div class="detail-box">
+                            <span>Time</span>
+                            <strong id="detailsTime">-</strong>
+                        </div>
+
+                        <div class="detail-box">
+                            <span>Duration</span>
+                            <strong id="detailsDuration">-</strong>
+                        </div>
+
+                        <div class="detail-box">
+                            <span>Questions</span>
+                            <strong id="detailsQuestions">-</strong>
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-actions">
+
+                        <button class="cancel-btn"
+                                onclick="showSection('examsSection', document.querySelectorAll('.nav-item')[1])">
+                            Back to My Exams
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   EXAM DATA
+========================================================= */
+
+const defaultExams = [
+
+    {
+        id: "se",
+        name: "Software Engineering",
+        date: "",
+        time: "",
+        duration: 30,
+        questions: 5,
+        status: "Live",
+        anytime: true,
+        cancelled: false
+    },
+
+    {
+        id: "ai",
+        name: "Artificial Intelligence",
+        date: "2026-09-20",
+        time: "14:00",
+        duration: 30,
+        questions: 5,
+        status: "Upcoming",
+        anytime: false,
+        cancelled: false
+    },
+
+    {
+        id: "math",
+        name: "Honours in Mathematics",
+        date: "2026-09-30",
+        time: "",
+        duration: 45,
+        questions: 25,
+        status: "Upcoming",
+        anytime: false,
+        cancelled: false
+    }
+
+];
+
+
+let exams = JSON.parse(localStorage.getItem("examPortalExams"));
+
+if (!exams) {
+
+    exams = defaultExams;
+
+    localStorage.setItem(
+        "examPortalExams",
+        JSON.stringify(exams)
+    );
+
+}
+
+
+let selectedExamId = null;
+
+
+/* =========================================================
+   GREETING
+========================================================= */
+
+function updateGreeting() {
+
+    const hour = new Date().getHours();
+
+    let greeting;
+
+    if (hour < 12) {
+        greeting = "Good morning";
+    }
+    else if (hour < 18) {
+        greeting = "Good afternoon";
+    }
+    else {
+        greeting = "Good evening";
+    }
+
+    document.getElementById("welcomeMessage").textContent =
+        greeting + ", Cynthia Ferrao";
+
+}
+
+updateGreeting();
+
+
+/* =========================================================
+   SECTION SWITCHING
+========================================================= */
+
+function showSection(sectionId, clickedTab) {
+
+    document.querySelectorAll(".portal-section").forEach(section => {
+
+        section.classList.remove("active-section");
+
+    });
+
+
+    document.getElementById(sectionId).classList.add("active-section");
+
+
+    document.querySelectorAll(".nav-item").forEach(item => {
+
+        item.classList.remove("active");
+
+    });
+
+
+    if (clickedTab) {
+
+        clickedTab.classList.add("active");
+
+    }
+
+
+    if (sectionId === "dashboardSection") {
+
+        renderDashboardExams();
+
+    }
+
+}
+
+
+/* =========================================================
+   STATUS UPDATE
+========================================================= */
+
+function updateExamStatuses() {
+
+    const now = new Date();
+
+    exams.forEach(exam => {
+
+        if (exam.cancelled) {
+
+            exam.status = "Cancelled";
+            return;
+
+        }
+
+
+        if (exam.anytime) {
+
+            exam.status = "Live";
+            return;
+
+        }
+
+
+        if (exam.date) {
+
+            const examDateTime = new Date(
+                exam.date + "T" + (exam.time || "00:00")
+            );
+
+
+            if (now >= examDateTime) {
+
+                exam.status = "Live";
+
+            }
+            else {
+
+                exam.status = "Upcoming";
+
+            }
+
+        }
+
+    });
+
+
+    saveExams();
+
+}
+
+
+/* =========================================================
+   SAVE EXAMS
+========================================================= */
+
+function saveExams() {
+
+    localStorage.setItem(
+        "examPortalExams",
+        JSON.stringify(exams)
+    );
+
+}
+
+
+/* =========================================================
+   FORMAT DATE
+========================================================= */
+
+function formatDate(date) {
+
+    if (!date) {
+
+        return "Available Anytime";
+
+    }
+
+    const d = new Date(date + "T00:00:00");
+
+    return d.toLocaleDateString("en-GB", {
+
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+
+    });
+
+}
+
+
+/* =========================================================
+   FORMAT TIME
+========================================================= */
+
+function formatTime(time) {
+
+    if (!time) {
+
+        return "";
+
+    }
+
+    const parts = time.split(":");
+
+    let hour = Number(parts[0]);
+
+    const minute = parts[1];
+
+    const suffix = hour >= 12 ? "PM" : "AM";
+
+    hour = hour % 12 || 12;
+
+    return hour + ":" + minute + " " + suffix;
+
+}
+
+
+/* =========================================================
+   EXAM ICON
+========================================================= */
+
+function getExamIcon(name) {
+
+    if (name.toLowerCase().includes("artificial")) {
+
+        return "AI";
+
+    }
+
+    if (name.toLowerCase().includes("mathematics")) {
+
+        return "HM";
+
+    }
+
+    if (name.toLowerCase().includes("software")) {
+
+        return "SE";
+
+    }
+
+    return name.substring(0, 2).toUpperCase();
+
+}
+
+
+/* =========================================================
+   RENDER EXAM CARD
+========================================================= */
+
+function createExamCard(exam) {
+
+    let metaDate;
+
+    if (exam.anytime) {
+
+        metaDate = "◷ Available Anytime";
+
+    }
+    else {
+
+        metaDate =
+            "◷ " +
+            formatDate(exam.date) +
+            (exam.time ? ", " + formatTime(exam.time) : "");
+
+    }
+
+
+    let statusClass = "upcoming";
+
+    if (exam.status === "Live") {
+
+        statusClass = "available";
+
+    }
+
+    if (exam.status === "Cancelled") {
+
+        statusClass = "cancelled-status";
+
+    }
+
+
+    const cardClass =
+        exam.cancelled
+            ? "exam-card-dashboard cancelled-card"
+            : "exam-card-dashboard";
+
+
+    return `
+
+        <div class="${cardClass}">
+
+            <div class="exam-main">
+
+                <div class="exam-icon">
+                    ${getExamIcon(exam.name)}
+                </div>
+
+                <div class="exam-info">
+
+                    <div class="exam-title-row">
+
+                        <h3>
+                            ${exam.name}
+                        </h3>
+
+                        <span class="status ${statusClass}">
+                            ${exam.status}
+                        </span>
+
+                    </div>
+
+                    <p>
+                        Mid-Semester Examination
+                    </p>
+
+                    <div class="exam-meta">
+
+                        <span>
+                            ${metaDate}
+                        </span>
+
+                        <span>
+                            ◫ ${exam.duration} Minutes
+                        </span>
+
+                        <span>
+                            ▣ ${exam.questions} Questions
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div style="display:flex; gap:8px; flex-wrap:wrap;">
+
+                <button
+                    class="outline-btn"
+                    onclick="viewExam('${exam.id}')">
+                    View
+                </button>
+
+                ${
+                    exam.cancelled
+                    ? ""
+                    : `
+                        <button
+                            class="outline-btn"
+                            onclick="openPostpone('${exam.id}')">
+                            Postpone
+                        </button>
+
+                        <button
+                            class="start-btn"
+                            onclick="cancelSelectedExam('${exam.id}')">
+                            Cancel
+                        </button>
+                    `
+                }
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================================
+   RENDER DASHBOARD EXAMS
+========================================================= */
+
+function renderDashboardExams() {
+
+    updateExamStatuses();
+
+    const container =
+        document.getElementById("dashboardExamList");
+
+    container.innerHTML =
+        exams.map(createExamCard).join("");
+
+    updateUpcomingCount();
+
+}
+
+
+/* =========================================================
+   RENDER MY EXAMS
+========================================================= */
+
+function renderExams() {
+
+    updateExamStatuses();
+
+    const container =
+        document.getElementById("allExamList");
+
+    container.innerHTML =
+        exams.map(createExamCard).join("");
+
+    updateUpcomingCount();
+
+}
+
+
+/* =========================================================
+   UPCOMING COUNT
+========================================================= */
+
+function updateUpcomingCount() {
+
+    const count =
+        exams.filter(exam =>
+            exam.status === "Upcoming"
+        ).length;
+
+    document.getElementById("upcomingCount").textContent =
+        String(count).padStart(2, "0");
+
+}
+
+
+/* =========================================================
+   SCHEDULE FORM
+========================================================= */
+
+function openScheduleForm() {
+
+    document.getElementById("newExamName").value = "";
+    document.getElementById("newExamDate").value = "";
+    document.getElementById("newExamTime").value = "";
+    document.getElementById("newExamDuration").value = "";
+    document.getElementById("newExamQuestions").value = "";
+
+
+    showSection(
+        "scheduleFormSection",
+        null
+    );
+
+}
+
+
+/* =========================================================
+   SAVE NEW EXAM
+========================================================= */
+
+function saveNewExam() {
+
+    const name =
+        document.getElementById("newExamName").value.trim();
+
+    const date =
+        document.getElementById("newExamDate").value;
+
+    const time =
+        document.getElementById("newExamTime").value;
+
+    const duration =
+        document.getElementById("newExamDuration").value;
+
+    const questions =
+        document.getElementById("newExamQuestions").value;
+
+
+    if (!name || !date || !time || !duration || !questions) {
+
+        alert("Please fill in all examination details.");
+
+        return;
+
+    }
+
+
+    const newExam = {
+
+        id: "exam_" + Date.now(),
+
+        name: name,
+
+        date: date,
+
+        time: time,
+
+        duration: Number(duration),
+
+        questions: Number(questions),
+
+        status: "Upcoming",
+
+        anytime: false,
+
+        cancelled: false
+
+    };
+
+
+    exams.push(newExam);
+
+    saveExams();
+
+    alert("Examination scheduled successfully.");
+
+
+    showSection(
+        "examsSection",
+        document.querySelectorAll(".nav-item")[1]
+    );
+
+    renderExams();
+
+}
+
+
+/* =========================================================
+   VIEW EXAM
+========================================================= */
+
+function viewExam(id) {
+
+    const exam =
+        exams.find(item => item.id === id);
+
+    if (!exam) return;
+
+
+    selectedExamId = id;
+
+
+    document.getElementById("detailsExamName").textContent =
+        exam.name;
+
+    document.getElementById("detailsStatus").textContent =
+        exam.status;
+
+    document.getElementById("detailsDate").textContent =
+        exam.anytime
+            ? "Available Anytime"
+            : formatDate(exam.date);
+
+    document.getElementById("detailsTime").textContent =
+        exam.anytime
+            ? "Anytime"
+            : formatTime(exam.time) || "Not specified";
+
+    document.getElementById("detailsDuration").textContent =
+        exam.duration + " Minutes";
+
+    document.getElementById("detailsQuestions").textContent =
+        exam.questions;
+
+
+    showSection("detailsSection", null);
+
+}
+
+
+/* =========================================================
+   POSTPONE
+========================================================= */
+
+function openPostpone(id) {
+
+    const exam =
+        exams.find(item => item.id === id);
+
+    if (!exam) return;
+
+
+    selectedExamId = id;
+
+
+    document.getElementById("postponeExamName").textContent =
+        exam.name;
+
+    document.getElementById("currentExamDate").value =
+        exam.anytime
+            ? "Available Anytime"
+            : formatDate(exam.date);
+
+    document.getElementById("currentExamTime").value =
+        exam.anytime
+            ? "Anytime"
+            : formatTime(exam.time) || "Not specified";
+
+
+    document.getElementById("postponeDate").value =
+        exam.date || "";
+
+    document.getElementById("postponeTime").value =
+        exam.time || "";
+
+
+    showSection("postponeFormSection", null);
+
+}
+
+
+/* =========================================================
+   SAVE POSTPONED EXAM
+========================================================= */
+
+function savePostponedExam() {
+
+    const exam =
+        exams.find(item => item.id === selectedExamId);
+
+    if (!exam) return;
+
+
+    const newDate =
+        document.getElementById("postponeDate").value;
+
+    const newTime =
+        document.getElementById("postponeTime").value;
+
+
+    if (!newDate || !newTime) {
+
+        alert("Please select the new date and time.");
+
+        return;
+
+    }
+
+
+    exam.date = newDate;
+
+    exam.time = newTime;
+
+    exam.anytime = false;
+
+    exam.cancelled = false;
+
+    exam.status = "Upcoming";
+
+
+    saveExams();
+
+
+    alert("Examination postponed successfully.");
+
+
+    showSection(
+        "examsSection",
+        document.querySelectorAll(".nav-item")[1]
+    );
+
+    renderExams();
+
+}
+
+
+/* =========================================================
+   CANCEL EXAM
+========================================================= */
+
+function cancelSelectedExam(id) {
+
+    const exam =
+        exams.find(item => item.id === id);
+
+    if (!exam) return;
+
+
+    const confirmCancel =
+        confirm(
+            "Are you sure you want to cancel " +
+            exam.name +
+            "?"
+        );
+
+
+    if (!confirmCancel) {
+
+        return;
+
+    }
+
+
+    exam.cancelled = true;
+
+    exam.status = "Cancelled";
+
+
+    saveExams();
+
+
+    alert(
+        exam.name +
+        " has been cancelled successfully."
+    );
+
+
+    renderDashboardExams();
+
+    renderExams();
+
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+========================================================= */
+
+updateExamStatuses();
+
+renderDashboardExams();
+
+</script>
+
+</body>
+</html>
