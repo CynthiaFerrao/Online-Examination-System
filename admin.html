@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard | ExamPortal</title>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Dashboard | ExamPortal</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
         .admin-section {
             display: none;
         }
@@ -311,1809 +311,986 @@
         }
     </style>
 </head>
-
 <body>
-
 <div class="dashboard">
-
-    <aside class="sidebar">
-
-        <div class="sidebar-brand">
-
-            <div class="portal-logo">
-                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="7" y="5" width="32" height="39" rx="7" fill="#176B8F"/>
-                    <path d="M15 15H31" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M15 22H31" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M15 29H23" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                    <circle cx="37" cy="36" r="10" fill="#F28C28" stroke="white" stroke-width="3"/>
-                    <path d="M32.5 36L35.5 39L41.5 32.5"
-                          fill="none"
-                          stroke="white"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                </svg>
-            </div>
-
-            <div>
-                <h2>ExamPortal</h2>
-                <span>Online Examination</span>
-            </div>
-
-        </div>
-
-        <nav>
-
-            <a href="#" class="nav-item active" onclick="showSection('dashboard', this)">
-                <span>▦</span>
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="portal-logo">
+<svg viewbox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#176B8F" height="39" rx="7" width="32" x="7" y="5"></rect>
+<path d="M15 15H31" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<path d="M15 22H31" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<path d="M15 29H23" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="37" cy="36" fill="#F28C28" r="10" stroke="white" stroke-width="3"></circle>
+<path d="M32.5 36L35.5 39L41.5 32.5" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div>
+<h2>ExamPortal</h2>
+<span>Online Examination</span>
+</div>
+</div>
+<nav>
+<a class="nav-item active" href="#" onclick="showSection('dashboard', this)">
+<span>▦</span>
                 Dashboard
             </a>
-
-            <a href="#" class="nav-item" onclick="manageStudents(this)">
-                <span>◎</span>
+<a class="nav-item" href="#" onclick="manageStudents(this)">
+<span>◎</span>
                 Students
             </a>
-
-            <a href="#" class="nav-item" onclick="manageExaminers(this)">
-                <span>◉</span>
+<a class="nav-item" href="#" onclick="manageExaminers(this)">
+<span>◉</span>
                 Examiners
             </a>
-
-            <a href="#" class="nav-item" onclick="manageExams(this)">
-                <span>◫</span>
+<a class="nav-item" href="#" onclick="manageExams(this)">
+<span>◫</span>
                 Examinations
             </a>
-
-            <a href="#" class="nav-item" onclick="manageUsers(this)">
-                <span>▤</span>
+<a class="nav-item" href="#" onclick="manageUsers(this)">
+<span>▤</span>
                 Users
             </a>
-
-        </nav>
-
-        <a href="index.html" class="logout">
-            <span>↪</span>
+</nav>
+<a class="logout" href="index.html">
+<span>↪</span>
             Logout
         </a>
-
-    </aside>
-
-
-    <main class="main-content">
-
-        <header class="topbar">
-
-            <div class="mobile-menu" onclick="toggleSidebar()">
+</aside>
+<main class="main-content">
+<header class="topbar">
+<div class="mobile-menu" onclick="toggleSidebar()">
                 ☰
             </div>
-
-            <div class="topbar-title">
+<div class="topbar-title">
                 Administrator Portal
             </div>
-
-            <div class="profile">
-
-                <div class="profile-avatar">
+<div class="profile">
+<div class="profile-avatar">
                     AD
                 </div>
-
-                <div class="profile-info">
-                    <strong>System Administrator</strong>
-                    <span>Administrator</span>
-                </div>
-
-                <span class="profile-arrow">
+<div class="profile-info">
+<strong>System Administrator</strong>
+<span>Administrator</span>
+</div>
+<span class="profile-arrow">
                     ⌄
                 </span>
-
-            </div>
-
-        </header>
-
-
-        <section class="content">
-
-
-            <!-- DASHBOARD -->
-
-            <div id="dashboardSection" class="admin-section active">
-
-                <div class="welcome">
-
-                    <div>
-
-                        <p class="welcome-label">
+</div>
+</header>
+<section class="content">
+<!-- DASHBOARD -->
+<div class="admin-section active" id="dashboardSection">
+<div class="welcome">
+<div>
+<p class="welcome-label">
                             ADMINISTRATOR DASHBOARD
                         </p>
-
-                        <h1 id="welcomeMessage">
+<h1 id="welcomeMessage">
                             Welcome, Administrator
                         </h1>
-
-                        <p>
+<p>
                             Monitor and manage the online examination system.
                         </p>
-
-                    </div>
-
-                    <div class="welcome-date">
-
-                        <span>
+</div>
+<div class="welcome-date">
+<span>
                             Today
                         </span>
-
-                        <strong>
-                            15 September 2026
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="stats-grid">
-
-                    <div class="stat-card">
-                        <div class="stat-icon blue">◎</div>
-                        <div>
-                            <span>Total Students</span>
-                            <strong>248</strong>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon orange">◉</div>
-                        <div>
-                            <span>Total Examiners</span>
-                            <strong>18</strong>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon blue">◫</div>
-                        <div>
-                            <span>Total Exams</span>
-                            <strong>32</strong>
-                        </div>
-                    </div>
-
-                    <div class="stat-card">
-                        <div class="stat-icon orange">✓</div>
-                        <div>
-                            <span>Completed Exams</span>
-                            <strong>24</strong>
-                        </div>
-                    </div>
-
-                </div>
-
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>System Overview</h2>
-                        <p>Current examination system activity</p>
-                    </div>
-
-                </div>
-
-
-                <div class="results-card">
-
-                    <div class="result-row result-head">
-                        <span>MODULE</span>
-                        <span>TOTAL</span>
-                        <span>ACTIVE</span>
-                        <span>STATUS</span>
-                    </div>
-
-                    <div class="result-row">
-                        <span class="result-name">Students</span>
-                        <span>248</span>
-                        <strong>235</strong>
-                        <span class="result-status passed">Active</span>
-                    </div>
-
-                    <div class="result-row">
-                        <span class="result-name">Examiners</span>
-                        <span>18</span>
-                        <strong>16</strong>
-                        <span class="result-status passed">Active</span>
-                    </div>
-
-                    <div class="result-row">
-                        <span class="result-name">Examinations</span>
-                        <span>32</span>
-                        <strong>08</strong>
-                        <span class="result-status passed">Scheduled</span>
-                    </div>
-
-                </div>
-
-
-                <div class="section-header results-heading">
-
-                    <div>
-                        <h2>Current Examinations</h2>
-                        <p>Overview of currently configured examinations</p>
-                    </div>
-
-                </div>
-
-
-                <div class="exam-list">
-
-
-                    <!-- SOFTWARE ENGINEERING -->
-
-                    <div class="exam-card-dashboard">
-
-                        <div class="exam-main">
-
-                            <div class="exam-icon">
+<strong id="currentAdminDate">15 September 2026</strong>
+</div>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon blue">◎</div>
+<div>
+<span>Total Students</span>
+<strong>248</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">◉</div>
+<div>
+<span>Total Examiners</span>
+<strong>18</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon blue">◫</div>
+<div>
+<span>Total Exams</span>
+<strong>32</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">✓</div>
+<div>
+<span>Completed Exams</span>
+<strong>24</strong>
+</div>
+</div>
+</div>
+<div class="section-header">
+<div>
+<h2>System Overview</h2>
+<p>Current examination system activity</p>
+</div>
+</div>
+<div class="results-card">
+<div class="result-row result-head">
+<span>MODULE</span>
+<span>TOTAL</span>
+<span>ACTIVE</span>
+<span>STATUS</span>
+</div>
+<div class="result-row">
+<span class="result-name">Students</span>
+<span>248</span>
+<strong>235</strong>
+<span class="result-status passed">Active</span>
+</div>
+<div class="result-row">
+<span class="result-name">Examiners</span>
+<span>18</span>
+<strong>16</strong>
+<span class="result-status passed">Active</span>
+</div>
+<div class="result-row">
+<span class="result-name">Examinations</span>
+<span>32</span>
+<strong>08</strong>
+<span class="result-status passed">Scheduled</span>
+</div>
+</div>
+<div class="section-header results-heading">
+<div>
+<h2>Current Examinations</h2>
+<p>Overview of currently configured examinations</p>
+</div>
+</div>
+<div class="exam-list">
+<!-- SOFTWARE ENGINEERING -->
+<div class="exam-card-dashboard">
+<div class="exam-main">
+<div class="exam-icon">
                                 SE
                             </div>
-
-                            <div class="exam-info">
-
-                                <div class="exam-title-row">
-
-                                    <h3>
+<div class="exam-info">
+<div class="exam-title-row">
+<h3>
                                         Software Engineering
                                     </h3>
-
-                                    <span class="status available">
+<span class="status available">
                                         Live
                                     </span>
-
-                                </div>
-
-                                <p>
+</div>
+<p>
                                     Mid-Semester Examination
                                 </p>
-
-                                <div class="exam-meta">
-
-                                    <span>
+<div class="exam-meta">
+<span>
                                         ◷ Available Anytime
                                     </span>
-
-                                    <span>
+<span>
                                         ◫ 30 Minutes
                                     </span>
-
-                                    <span>
+<span>
                                         ▣ 5 Questions
                                     </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <button class="outline-btn"
-                                onclick="viewSoftwareExam()">
+</div>
+</div>
+</div>
+<button class="outline-btn" onclick="viewSoftwareExam()">
                             View
                         </button>
-
-                    </div>
-
-
-                    <!-- ARTIFICIAL INTELLIGENCE -->
-
-                    <div class="exam-card-dashboard">
-
-                        <div class="exam-main">
-
-                            <div class="exam-icon">
+</div>
+<!-- ARTIFICIAL INTELLIGENCE -->
+<div class="exam-card-dashboard">
+<div class="exam-main">
+<div class="exam-icon">
                                 AI
                             </div>
-
-                            <div class="exam-info">
-
-                                <div class="exam-title-row">
-
-                                    <h3>
+<div class="exam-info">
+<div class="exam-title-row">
+<h3>
                                         Artificial Intelligence
                                     </h3>
-
-                                    <span class="status upcoming">
+<span class="status upcoming">
                                         Upcoming
                                     </span>
-
-                                </div>
-
-                                <p>
+</div>
+<p>
                                     Mid-Semester Examination
                                 </p>
-
-                                <div class="exam-meta">
-
-                                    <span>
+<div class="exam-meta">
+<span>
                                         ◷ 20 Sep 2026, 2:00 PM
                                     </span>
-
-                                    <span>
+<span>
                                         ◫ 30 Minutes
                                     </span>
-
-                                    <span>
+<span>
                                         ▣ 5 Questions
                                     </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <button class="outline-btn"
-                                onclick="viewAIExam()">
+</div>
+</div>
+</div>
+<button class="outline-btn" onclick="viewAIExam()">
                             View
                         </button>
-
-                    </div>
-
-
-                    <!-- MATHEMATICS -->
-
-                    <div class="exam-card-dashboard">
-
-                        <div class="exam-main">
-
-                            <div class="exam-icon">
+</div>
+<!-- MATHEMATICS -->
+<div class="exam-card-dashboard">
+<div class="exam-main">
+<div class="exam-icon">
                                 HM
                             </div>
-
-                            <div class="exam-info">
-
-                                <div class="exam-title-row">
-
-                                    <h3>
+<div class="exam-info">
+<div class="exam-title-row">
+<h3>
                                         Honours in Mathematics
                                     </h3>
-
-                                    <span class="status upcoming">
+<span class="status upcoming">
                                         Upcoming
                                     </span>
-
-                                </div>
-
-                                <p>
+</div>
+<p>
                                     Mid-Semester Examination
                                 </p>
-
-                                <div class="exam-meta">
-
-                                    <span>
+<div class="exam-meta">
+<span>
                                         ◷ 30 Sep 2026
                                     </span>
-
-                                    <span>
+<span>
                                         ◫ 45 Minutes
                                     </span>
-
-                                    <span>
+<span>
                                         ▣ 25 Questions
                                     </span>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <button class="outline-btn"
-                                onclick="viewMathExam()">
+</div>
+</div>
+</div>
+<button class="outline-btn" onclick="viewMathExam()">
                             View
                         </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="section-header results-heading">
-
-                    <div>
-                        <h2>Quick Actions</h2>
-                        <p>Common administrator operations</p>
-                    </div>
-
-                </div>
-
-
-                <div class="exam-list">
-
-
-                    <div class="exam-card-dashboard">
-
-                        <div class="exam-main">
-
-                            <div class="exam-icon">
+</div>
+</div>
+<div class="section-header results-heading">
+<div>
+<h2>Quick Actions</h2>
+<p>Common administrator operations</p>
+</div>
+</div>
+<div class="exam-list">
+<div class="exam-card-dashboard">
+<div class="exam-main">
+<div class="exam-icon">
                                 ST
                             </div>
-
-                            <div class="exam-info">
-
-                                <h3>
+<div class="exam-info">
+<h3>
                                     Manage Students
                                 </h3>
-
-                                <p>
+<p>
                                     View and manage registered student accounts.
                                 </p>
-
-                            </div>
-
-                        </div>
-
-                        <button class="outline-btn"
-                                onclick="manageStudents()">
+</div>
+</div>
+<button class="outline-btn" onclick="manageStudents()">
                             Manage →
                         </button>
-
-                    </div>
-
-
-                    <div class="exam-card-dashboard">
-
-                        <div class="exam-main">
-
-                            <div class="exam-icon">
+</div>
+<div class="exam-card-dashboard">
+<div class="exam-main">
+<div class="exam-icon">
                                 EX
                             </div>
-
-                            <div class="exam-info">
-
-                                <h3>
+<div class="exam-info">
+<h3>
                                     Manage Examiners
                                 </h3>
-
-                                <p>
+<p>
                                     View and manage examiner accounts.
                                 </p>
-
-                            </div>
-
-                        </div>
-
-                        <button class="outline-btn"
-                                onclick="manageExaminers()">
+</div>
+</div>
+<button class="outline-btn" onclick="manageExaminers()">
                             Manage →
                         </button>
-
-                    </div>
-
-
-                    <div class="exam-card-dashboard">
-
-                        <div class="exam-main">
-
-                            <div class="exam-icon">
+</div>
+<div class="exam-card-dashboard">
+<div class="exam-main">
+<div class="exam-icon">
                                 EM
                             </div>
-
-                            <div class="exam-info">
-
-                                <h3>
+<div class="exam-info">
+<h3>
                                     Manage Examinations
                                 </h3>
-
-                                <p>
+<p>
                                     Monitor scheduled and completed examinations.
                                 </p>
-
-                            </div>
-
-                        </div>
-
-                        <button class="outline-btn"
-                                onclick="manageExams()">
+</div>
+</div>
+<button class="outline-btn" onclick="manageExams()">
                             Manage →
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- STUDENTS -->
-
-            <div id="studentsSection" class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('dashboard')">
+</div>
+</div>
+</div>
+<!-- STUDENTS -->
+<div class="admin-section" id="studentsSection">
+<button class="back-btn" onclick="showSection('dashboard')">
                     ← Back to Dashboard
                 </button>
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>Student Management</h2>
-                        <p>View and manage registered student accounts</p>
-                    </div>
-
-                </div>
-
-
-                <div class="admin-toolbar">
-
-                    <input
-                        type="text"
-                        class="admin-search"
-                        placeholder="Search students..."
-                        onkeyup="searchTable('studentTable', this.value)">
-
-                    <button class="primary-btn"
-                            onclick="addStudent()">
+<div class="section-header">
+<div>
+<h2>Student Management</h2>
+<p>View and manage registered student accounts</p>
+</div>
+</div>
+<div class="admin-toolbar">
+<input class="admin-search" onkeyup="searchTable('studentTable', this.value)" placeholder="Search students..." type="text"/>
+<button class="primary-btn" onclick="addStudent()">
                         + Add Student
                     </button>
-
-                </div>
-
-
-                <div class="table-card">
-
-                    <table class="admin-table" id="studentTable">
-
-                        <thead>
-
-                            <tr>
-                                <th>STUDENT</th>
-                                <th>STUDENT ID</th>
-                                <th>DEPARTMENT</th>
-                                <th>YEAR</th>
-                                <th>STATUS</th>
-                                <th>ACTION</th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>Cynthia Ferrao</td>
-                                <td>XIE2026CS01</td>
-                                <td>Computer Engineering</td>
-                                <td>3rd Year</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+<div class="table-card">
+<table class="admin-table" id="studentTable">
+<thead>
+<tr>
+<th>STUDENT</th>
+<th>STUDENT ID</th>
+<th>DEPARTMENT</th>
+<th>YEAR</th>
+<th>STATUS</th>
+<th>ACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cynthia Ferrao</td>
+<td>XIE2026CS01</td>
+<td>Computer Engineering</td>
+<td>3rd Year</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewStudent(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewStudent(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageStudent(this)">
+<button class="secondary-btn" onclick="manageStudent(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>Rahul Mehta</td>
-                                <td>XIE2026CS02</td>
-                                <td>Computer Engineering</td>
-                                <td>3rd Year</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+</td>
+</tr>
+<tr>
+<td>Rahul Mehta</td>
+<td>XIE2026CS02</td>
+<td>Computer Engineering</td>
+<td>3rd Year</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewStudent(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewStudent(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageStudent(this)">
+<button class="secondary-btn" onclick="manageStudent(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>Ananya Shah</td>
-                                <td>XIE2026CS03</td>
-                                <td>Computer Engineering</td>
-                                <td>3rd Year</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+</td>
+</tr>
+<tr>
+<td>Ananya Shah</td>
+<td>XIE2026CS03</td>
+<td>Computer Engineering</td>
+<td>3rd Year</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewStudent(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewStudent(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageStudent(this)">
+<button class="secondary-btn" onclick="manageStudent(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-
-            <!-- EXAMINERS -->
-
-            <div id="examinersSection" class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('dashboard')">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- EXAMINERS -->
+<div class="admin-section" id="examinersSection">
+<button class="back-btn" onclick="showSection('dashboard')">
                     ← Back to Dashboard
                 </button>
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>Examiner Management</h2>
-                        <p>View and manage examiner accounts</p>
-                    </div>
-
-                </div>
-
-
-                <div class="admin-toolbar">
-
-                    <input
-                        type="text"
-                        class="admin-search"
-                        placeholder="Search examiners..."
-                        onkeyup="searchTable('examinerTable', this.value)">
-
-                    <button class="primary-btn"
-                            onclick="addExaminer()">
+<div class="section-header">
+<div>
+<h2>Examiner Management</h2>
+<p>View and manage examiner accounts</p>
+</div>
+</div>
+<div class="admin-toolbar">
+<input class="admin-search" onkeyup="searchTable('examinerTable', this.value)" placeholder="Search examiners..." type="text"/>
+<button class="primary-btn" onclick="addExaminer()">
                         + Add Examiner
                     </button>
-
-                </div>
-
-
-                <div class="table-card">
-
-                    <table class="admin-table" id="examinerTable">
-
-                        <thead>
-
-                            <tr>
-                                <th>EXAMINER</th>
-                                <th>EMPLOYEE ID</th>
-                                <th>DEPARTMENT</th>
-                                <th>EXAMS</th>
-                                <th>STATUS</th>
-                                <th>ACTION</th>
-                            </tr>
-
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-
-                                <td>Dr. Priya Sharma</td>
-                                <td>EX001</td>
-                                <td>Computer Engineering</td>
-                                <td>08</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+<div class="table-card">
+<table class="admin-table" id="examinerTable">
+<thead>
+<tr>
+<th>EXAMINER</th>
+<th>EMPLOYEE ID</th>
+<th>DEPARTMENT</th>
+<th>EXAMS</th>
+<th>STATUS</th>
+<th>ACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Dr. Priya Sharma</td>
+<td>EX001</td>
+<td>Computer Engineering</td>
+<td>08</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewExaminer(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewExaminer(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageExaminer(this)">
+<button class="secondary-btn" onclick="manageExaminer(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>Prof. Rajesh Joshi</td>
-                                <td>EX002</td>
-                                <td>Information Technology</td>
-                                <td>06</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+</td>
+</tr>
+<tr>
+<td>Prof. Rajesh Joshi</td>
+<td>EX002</td>
+<td>Information Technology</td>
+<td>06</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewExaminer(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewExaminer(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageExaminer(this)">
+<button class="secondary-btn" onclick="manageExaminer(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>Prof. Vaidehi Joshi</td>
-                                <td>EX003</td>
-                                <td>Mathematics</td>
-                                <td>04</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+</td>
+</tr>
+<tr>
+<td>Prof. Vaidehi Joshi</td>
+<td>EX003</td>
+<td>Mathematics</td>
+<td>04</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewExaminer(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewExaminer(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageExaminer(this)">
+<button class="secondary-btn" onclick="manageExaminer(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-
-            <!-- EXAMINATIONS -->
-
-            <div id="examsSection" class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('dashboard')">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- EXAMINATIONS -->
+<div class="admin-section" id="examsSection">
+<button class="back-btn" onclick="showSection('dashboard')">
                     ← Back to Dashboard
                 </button>
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>Examination Management</h2>
-                        <p>Manage scheduled and configured examinations</p>
-                    </div>
-
-                    <button class="primary-btn"
-                            onclick="showScheduleForm()">
+<div class="section-header">
+<div>
+<h2>Examination Management</h2>
+<p>Manage scheduled and configured examinations</p>
+</div>
+<button class="primary-btn" onclick="showScheduleForm()">
                         + Schedule Exam
                     </button>
-
-                </div>
-
-
-                <!-- SCHEDULE FORM -->
-
-                <div id="scheduleForm"
-                     class="admin-form-card"
-                     style="display:none;">
-
-                    <h3>Schedule New Examination</h3>
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>
+</div>
+<!-- SCHEDULE FORM -->
+<div class="admin-form-card" id="scheduleForm" style="display:none;">
+<h3>Schedule New Examination</h3>
+<div class="form-grid">
+<div class="form-group">
+<label>
                                 Exam Name
                             </label>
-
-                            <input
-                                type="text"
-                                id="newExamName"
-                                placeholder="Enter examination name">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
+<input id="newExamName" placeholder="Enter examination name" type="text"/>
+</div>
+<div class="form-group">
+<label>
                                 Exam Type
                             </label>
-
-                            <select id="newExamType">
-
-                                <option>
+<select id="newExamType">
+<option>
                                     Mid-Semester Examination
                                 </option>
-
-                                <option>
+<option>
                                     End-Semester Examination
                                 </option>
-
-                                <option>
+<option>
                                     Internal Assessment
                                 </option>
-
-                                <option>
+<option>
                                     Practice Examination
                                 </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
+</select>
+</div>
+<div class="form-group">
+<label>
                                 Date
                             </label>
-
-                            <input
-                                type="date"
-                                id="newExamDate">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
+<input id="newExamDate" type="date"/>
+</div>
+<div class="form-group">
+<label>
                                 Time
                             </label>
-
-                            <input
-                                type="time"
-                                id="newExamTime">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
+<input id="newExamTime" type="time"/>
+</div>
+<div class="form-group">
+<label>
                                 Duration (Minutes)
                             </label>
-
-                            <input
-                                type="number"
-                                id="newExamDuration"
-                                value="30"
-                                min="1">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>
+<input id="newExamDuration" min="1" type="number" value="30"/>
+</div>
+<div class="form-group">
+<label>
                                 Number of Questions
                             </label>
-
-                            <input
-                                type="number"
-                                id="newExamQuestions"
-                                value="5"
-                                min="1">
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-buttons">
-
-                        <button class="secondary-btn"
-                                onclick="hideScheduleForm()">
+<input id="newExamQuestions" min="1" type="number" value="5"/>
+</div>
+</div>
+<div class="form-buttons">
+<button class="secondary-btn" onclick="hideScheduleForm()">
                             Cancel
                         </button>
-
-                        <button class="primary-btn"
-                                onclick="scheduleExam()">
+<button class="primary-btn" onclick="scheduleExam()">
                             Schedule Exam
                         </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="table-card">
-
-                    <table class="admin-table">
-
-                        <thead>
-
-                            <tr>
-                                <th>EXAMINATION</th>
-                                <th>DATE</th>
-                                <th>TIME</th>
-                                <th>DURATION</th>
-                                <th>QUESTIONS</th>
-                                <th>STATUS</th>
-                                <th>ACTION</th>
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody id="examTableBody">
-
-                            <tr>
-
-                                <td>Software Engineering</td>
-                                <td>Anytime</td>
-                                <td>—</td>
-                                <td>30 min</td>
-                                <td>5</td>
-
-                                <td>
-                                    <span class="active-status">
-                                        Live
-                                    </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewSoftwareExam()">
-                                            View
-                                        </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageExam(this)">
-                                            Manage
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>Artificial Intelligence</td>
-                                <td>20 Sep 2026</td>
-                                <td>2:00 PM</td>
-                                <td>30 min</td>
-                                <td>5</td>
-
-                                <td>
-                                    <span class="scheduled-status">
-                                        Scheduled
-                                    </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewAIExam()">
-                                            View
-                                        </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageExam(this)">
-                                            Manage
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr>
-
-                                <td>Honours in Mathematics</td>
-                                <td>30 Sep 2026</td>
-                                <td>—</td>
-                                <td>45 min</td>
-                                <td>25</td>
-
-                                <td>
-                                    <span class="scheduled-status">
-                                        Scheduled
-                                    </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewMathExam()">
-                                            View
-                                        </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageExam(this)">
-                                            Manage
-                                        </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-
-            <!-- USERS -->
-
-            <div id="usersSection" class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('dashboard')">
+</div>
+</div>
+<div class="table-card">
+<table class="admin-table">
+<thead>
+<tr>
+<th>EXAMINATION</th>
+<th>DATE</th>
+<th>TIME</th>
+<th>DURATION</th>
+<th>QUESTIONS</th>
+<th>STATUS</th>
+<th>ACTION</th>
+</tr>
+</thead>
+<tbody id="examTableBody"></tbody>
+</table>
+</div>
+</div>
+<!-- USERS -->
+<div class="admin-section" id="usersSection">
+<button class="back-btn" onclick="showSection('dashboard')">
                     ← Back to Dashboard
                 </button>
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>User Management</h2>
-                        <p>Manage all registered system users</p>
-                    </div>
-
-                </div>
-
-
-                <div class="admin-toolbar">
-
-                    <input
-                        type="text"
-                        id="userSearch"
-                        class="admin-search"
-                        placeholder="Search users..."
-                        onkeyup="searchTable('userTable', this.value)">
-
-                    <select class="admin-search"
-                            onchange="filterUsers(this.value)">
-
-                        <option value="all">
+<div class="section-header">
+<div>
+<h2>User Management</h2>
+<p>Manage all registered system users</p>
+</div>
+</div>
+<div class="admin-toolbar">
+<input class="admin-search" id="userSearch" onkeyup="searchTable('userTable', this.value)" placeholder="Search users..." type="text"/>
+<select class="admin-search" onchange="filterUsers(this.value)">
+<option value="all">
                             All Users
                         </option>
-
-                        <option value="student">
+<option value="student">
                             Students
                         </option>
-
-                        <option value="examiner">
+<option value="examiner">
                             Examiners
                         </option>
-
-                        <option value="administrator">
+<option value="administrator">
                             Administrators
                         </option>
-
-                    </select>
-
-                </div>
-
-
-                <div class="table-card">
-
-                    <table class="admin-table"
-                           id="userTable">
-
-                        <thead>
-
-                            <tr>
-                                <th>USER</th>
-                                <th>ROLE</th>
-                                <th>USER ID</th>
-                                <th>STATUS</th>
-                                <th>ACTION</th>
-                            </tr>
-
-                        </thead>
-
-
-                        <tbody>
-
-                            <tr data-role="student">
-
-                                <td>Cynthia Ferrao</td>
-                                <td>Student</td>
-                                <td>XIE2026CS01</td>
-
-                                <td>
-                                    <span class="active-status">
+</select>
+</div>
+<div class="table-card">
+<table class="admin-table" id="userTable">
+<thead>
+<tr>
+<th>USER</th>
+<th>ROLE</th>
+<th>USER ID</th>
+<th>STATUS</th>
+<th>ACTION</th>
+</tr>
+</thead>
+<tbody>
+<tr data-role="student">
+<td>Cynthia Ferrao</td>
+<td>Student</td>
+<td>XIE2026CS01</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewUser(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewUser(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageUser(this)">
+<button class="secondary-btn" onclick="manageUser(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr data-role="examiner">
-
-                                <td>Dr. Priya Sharma</td>
-                                <td>Examiner</td>
-                                <td>EX001</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+</td>
+</tr>
+<tr data-role="examiner">
+<td>Dr. Priya Sharma</td>
+<td>Examiner</td>
+<td>EX001</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewUser(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewUser(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageUser(this)">
+<button class="secondary-btn" onclick="manageUser(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-
-                            <tr data-role="administrator">
-
-                                <td>System Administrator</td>
-                                <td>Administrator</td>
-                                <td>ADMIN001</td>
-
-                                <td>
-                                    <span class="active-status">
+</div>
+</td>
+</tr>
+<tr data-role="administrator">
+<td>System Administrator</td>
+<td>Administrator</td>
+<td>ADMIN001</td>
+<td>
+<span class="active-status">
                                         Active
                                     </span>
-                                </td>
-
-                                <td>
-
-                                    <div class="table-actions">
-
-                                        <button class="secondary-btn"
-                                                onclick="viewUser(this)">
+</td>
+<td>
+<div class="table-actions">
+<button class="secondary-btn" onclick="viewUser(this)">
                                             View
                                         </button>
-
-                                        <button class="secondary-btn"
-                                                onclick="manageUser(this)">
+<button class="secondary-btn" onclick="manageUser(this)">
                                             Manage
                                         </button>
-
-                                    </div>
-
-                                </td>
-
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-            </div>
-
-
-            <!-- DETAILS -->
-
-            <div id="detailsSection"
-                 class="admin-section">
-
-                <button class="back-btn"
-                        onclick="goBackFromDetails()">
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- DETAILS -->
+<div class="admin-section" id="detailsSection">
+<button class="back-btn" onclick="goBackFromDetails()">
                     ← Back
                 </button>
-
-                <div class="details-card">
-
-                    <div class="section-header">
-
-                        <div>
-                            <h2 id="detailTitle">
+<div class="details-card">
+<div class="section-header">
+<div>
+<h2 id="detailTitle">
                                 Details
                             </h2>
-
-                            <p id="detailSubtitle">
+<p id="detailSubtitle">
                                 View information
                             </p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="details-grid">
-
-                        <div class="detail-item">
-                            <span>NAME / SUBJECT</span>
-                            <strong id="detailName">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>TYPE / ROLE</span>
-                            <strong id="detailType">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>ID</span>
-                            <strong id="detailId">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>DEPARTMENT</span>
-                            <strong id="detailDepartment">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>DATE</span>
-                            <strong id="detailDate">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>TIME</span>
-                            <strong id="detailTime">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>DURATION</span>
-                            <strong id="detailDuration">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>QUESTIONS / EXAMS</span>
-                            <strong id="detailQuestions">—</strong>
-                        </div>
-
-                        <div class="detail-item">
-                            <span>STATUS</span>
-                            <strong id="detailStatus">—</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MANAGE STUDENT -->
-
-            <div id="manageStudentSection"
-                 class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('students')">
+</div>
+</div>
+<div class="details-grid">
+<div class="detail-item">
+<span>NAME / SUBJECT</span>
+<strong id="detailName">—</strong>
+</div>
+<div class="detail-item">
+<span>TYPE / ROLE</span>
+<strong id="detailType">—</strong>
+</div>
+<div class="detail-item">
+<span>ID</span>
+<strong id="detailId">—</strong>
+</div>
+<div class="detail-item">
+<span>DEPARTMENT</span>
+<strong id="detailDepartment">—</strong>
+</div>
+<div class="detail-item">
+<span>DATE</span>
+<strong id="detailDate">—</strong>
+</div>
+<div class="detail-item">
+<span>TIME</span>
+<strong id="detailTime">—</strong>
+</div>
+<div class="detail-item">
+<span>DURATION</span>
+<strong id="detailDuration">—</strong>
+</div>
+<div class="detail-item">
+<span>QUESTIONS / EXAMS</span>
+<strong id="detailQuestions">—</strong>
+</div>
+<div class="detail-item">
+<span>STATUS</span>
+<strong id="detailStatus">—</strong>
+</div>
+</div>
+</div>
+</div>
+<!-- MANAGE STUDENT -->
+<div class="admin-section" id="manageStudentSection">
+<button class="back-btn" onclick="showSection('students')">
                     ← Back to Students
                 </button>
-
-                <div class="details-card">
-
-                    <div class="manage-header">
-
-                        <div>
-                            <h3>Manage Student Account</h3>
-                            <p>Edit account details and manage student access.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>Full Name</label>
-
-                            <input type="text"
-                                   id="manageStudentName">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Student ID</label>
-
-                            <input type="text"
-                                   id="manageStudentId">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Department</label>
-
-                            <input type="text"
-                                   id="manageStudentDepartment">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Year</label>
-
-                            <select id="manageStudentYear">
-
-                                <option>1st Year</option>
-                                <option>2nd Year</option>
-                                <option>3rd Year</option>
-                                <option>4th Year</option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-buttons">
-
-                        <button class="secondary-btn"
-                                onclick="showSection('students')">
+<div class="details-card">
+<div class="manage-header">
+<div>
+<h3>Manage Student Account</h3>
+<p>Edit account details and manage student access.</p>
+</div>
+</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Full Name</label>
+<input id="manageStudentName" type="text"/>
+</div>
+<div class="form-group">
+<label>Student ID</label>
+<input id="manageStudentId" type="text"/>
+</div>
+<div class="form-group">
+<label>Department</label>
+<input id="manageStudentDepartment" type="text"/>
+</div>
+<div class="form-group">
+<label>Year</label>
+<select id="manageStudentYear">
+<option>1st Year</option>
+<option>2nd Year</option>
+<option>3rd Year</option>
+<option>4th Year</option>
+</select>
+</div>
+</div>
+<div class="form-buttons">
+<button class="secondary-btn" onclick="showSection('students')">
                             Cancel
                         </button>
-
-                        <button class="danger-btn"
-                                id="studentStatusButton"
-                                onclick="changeManagedStatus('student')">
+<button class="danger-btn" id="studentStatusButton" onclick="changeManagedStatus('student')">
                             Deactivate Account
                         </button>
-
-                        <button class="primary-btn"
-                                onclick="saveStudentChanges()">
+<button class="primary-btn" onclick="saveStudentChanges()">
                             Save Changes
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MANAGE EXAMINER -->
-
-            <div id="manageExaminerSection"
-                 class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('examiners')">
+</div>
+</div>
+</div>
+<!-- MANAGE EXAMINER -->
+<div class="admin-section" id="manageExaminerSection">
+<button class="back-btn" onclick="showSection('examiners')">
                     ← Back to Examiners
                 </button>
-
-                <div class="details-card">
-
-                    <div class="manage-header">
-
-                        <div>
-                            <h3>Manage Examiner Account</h3>
-                            <p>Edit examiner details and manage examiner access.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>Full Name</label>
-
-                            <input type="text"
-                                   id="manageExaminerName">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Employee ID</label>
-
-                            <input type="text"
-                                   id="manageExaminerId">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Department</label>
-
-                            <input type="text"
-                                   id="manageExaminerDepartment">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Assigned Exams</label>
-
-                            <input type="number"
-                                   id="manageExaminerExams"
-                                   min="0">
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-buttons">
-
-                        <button class="secondary-btn"
-                                onclick="showSection('examiners')">
+<div class="details-card">
+<div class="manage-header">
+<div>
+<h3>Manage Examiner Account</h3>
+<p>Edit examiner details and manage examiner access.</p>
+</div>
+</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Full Name</label>
+<input id="manageExaminerName" type="text"/>
+</div>
+<div class="form-group">
+<label>Employee ID</label>
+<input id="manageExaminerId" type="text"/>
+</div>
+<div class="form-group">
+<label>Department</label>
+<input id="manageExaminerDepartment" type="text"/>
+</div>
+<div class="form-group">
+<label>Assigned Exams</label>
+<input id="manageExaminerExams" min="0" type="number"/>
+</div>
+</div>
+<div class="form-buttons">
+<button class="secondary-btn" onclick="showSection('examiners')">
                             Cancel
                         </button>
-
-                        <button class="danger-btn"
-                                id="examinerStatusButton"
-                                onclick="changeManagedStatus('examiner')">
+<button class="danger-btn" id="examinerStatusButton" onclick="changeManagedStatus('examiner')">
                             Deactivate Account
                         </button>
-
-                        <button class="primary-btn"
-                                onclick="saveExaminerChanges()">
+<button class="primary-btn" onclick="saveExaminerChanges()">
                             Save Changes
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MANAGE EXAM -->
-
-            <div id="manageExamSection"
-                 class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('exams')">
+</div>
+</div>
+</div>
+<!-- MANAGE EXAM -->
+<div class="admin-section" id="manageExamSection">
+<button class="back-btn" onclick="showSection('exams')">
                     ← Back to Examinations
                 </button>
-
-                <div class="details-card">
-
-                    <div class="manage-header">
-
-                        <div>
-                            <h3>Manage Examination</h3>
-                            <p>Edit, postpone or cancel this examination.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>Exam Name</label>
-
-                            <input type="text"
-                                   id="manageExamName">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Exam Type</label>
-
-                            <select id="manageExamType">
-
-                                <option>
+<div class="details-card">
+<div class="manage-header">
+<div>
+<h3>Manage Examination</h3>
+<p>Edit, postpone or cancel this examination.</p>
+</div>
+</div>
+<div class="form-grid">
+<div class="form-group">
+<label>Exam Name</label>
+<input id="manageExamName" type="text"/>
+</div>
+<div class="form-group">
+<label>Exam Type</label>
+<select id="manageExamType">
+<option>
                                     Mid-Semester Examination
                                 </option>
-
-                                <option>
+<option>
                                     End-Semester Examination
                                 </option>
-
-                                <option>
+<option>
                                     Internal Assessment
                                 </option>
-
-                                <option>
+<option>
                                     Practice Examination
                                 </option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Date</label>
-
-                            <input type="date"
-                                   id="manageExamDate">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Time</label>
-
-                            <input type="time"
-                                   id="manageExamTime">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Duration</label>
-
-                            <input type="number"
-                                   id="manageExamDuration"
-                                   min="1">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Questions</label>
-
-                            <input type="number"
-                                   id="manageExamQuestions"
-                                   min="1">
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-buttons">
-
-                        <button class="secondary-btn"
-                                onclick="showSection('exams')">
+</select>
+</div>
+<div class="form-group">
+<label>Date</label>
+<input id="manageExamDate" type="date"/>
+</div>
+<div class="form-group">
+<label>Time</label>
+<input id="manageExamTime" type="time"/>
+</div>
+<div class="form-group">
+<label>Duration</label>
+<input id="manageExamDuration" min="1" type="number"/>
+</div>
+<div class="form-group">
+<label>Questions</label>
+<input id="manageExamQuestions" min="1" type="number"/>
+</div>
+</div>
+<div class="form-buttons">
+<button class="secondary-btn" onclick="showSection('exams')">
                             Cancel
                         </button>
-
-                        <button class="danger-btn"
-                                onclick="cancelManagedExam()">
+<button class="danger-btn" onclick="cancelManagedExam()">
                             Cancel Examination
                         </button>
-
-                        <button class="primary-btn"
-                                onclick="saveExamChanges()">
+<button class="primary-btn" onclick="saveExamChanges()">
                             Save Changes
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- MANAGE USER -->
-
-            <div id="manageUserSection"
-                 class="admin-section">
-
-                <button class="back-btn"
-                        onclick="showSection('users')">
+</div>
+</div>
+</div>
+<!-- MANAGE USER -->
+<div class="admin-section" id="manageUserSection">
+<button class="back-btn" onclick="showSection('users')">
                     ← Back to Users
                 </button>
-
-                <div class="details-card">
-
-                    <div class="manage-header">
-
-                        <div>
-                            <h3>Manage User Account</h3>
-                            <p>Update user role and account status.</p>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>User Name</label>
-
-                            <input type="text"
-                                   id="manageUserName">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>User ID</label>
-
-                            <input type="text"
-                                   id="manageUserId">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Role</label>
-
-                            <select id="manageUserRole">
-
-                                <option>Student</option>
-                                <option>Examiner</option>
-                                <option>Administrator</option>
-
-                            </select>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Status</label>
-
-                            <select id="manageUserStatus">
-
-                                <option>Active</option>
-                                <option>Inactive</option>
-
-                            </select>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-buttons">
-
-                        <button class="secondary-btn"
-                                onclick="showSection('users')">
+<div class="details-card">
+<div class="manage-header">
+<div>
+<h3>Manage User Account</h3>
+<p>Update user role and account status.</p>
+</div>
+</div>
+<div class="form-grid">
+<div class="form-group">
+<label>User Name</label>
+<input id="manageUserName" type="text"/>
+</div>
+<div class="form-group">
+<label>User ID</label>
+<input id="manageUserId" type="text"/>
+</div>
+<div class="form-group">
+<label>Role</label>
+<select id="manageUserRole">
+<option>Student</option>
+<option>Examiner</option>
+<option>Administrator</option>
+</select>
+</div>
+<div class="form-group">
+<label>Status</label>
+<select id="manageUserStatus">
+<option>Active</option>
+<option>Inactive</option>
+</select>
+</div>
+</div>
+<div class="form-buttons">
+<button class="secondary-btn" onclick="showSection('users')">
                             Cancel
                         </button>
-
-                        <button class="primary-btn"
-                                onclick="saveUserChanges()">
+<button class="primary-btn" onclick="saveUserChanges()">
                             Save Changes
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
 </div>
-
-
+</div>
+</div>
+</section>
+</main>
+</div>
 <script>
 
 
@@ -3532,6 +2709,6 @@ function updateGreeting() {
 updateGreeting();
 
 </script>
-
+<script src="portal-data.js"></script>
 </body>
 </html>

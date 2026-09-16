@@ -1,479 +1,164 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Exams | ExamPortal</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Exams | ExamPortal</title>
+<link href="style.css" rel="stylesheet"/>
 </head>
-
 <body>
-
 <div class="dashboard">
-
-    <aside class="sidebar">
-
-        <div class="sidebar-brand">
-
-            <div class="portal-logo">
-                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-
-                    <rect x="7" y="5" width="32" height="39" rx="7"
-                          fill="#176B8F"/>
-
-                    <path d="M15 15H31"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"/>
-
-                    <path d="M15 22H31"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"/>
-
-                    <path d="M15 29H23"
-                          stroke="white"
-                          stroke-width="3"
-                          stroke-linecap="round"/>
-
-                    <circle cx="37" cy="36" r="10"
-                            fill="#F28C28"
-                            stroke="white"
-                            stroke-width="3"/>
-
-                    <path d="M32.5 36L35.5 39L41.5 32.5"
-                          fill="none"
-                          stroke="white"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-
-                </svg>
-            </div>
-
-            <div>
-                <h2>ExamPortal</h2>
-                <span>Online Examination</span>
-            </div>
-
-        </div>
-
-
-        <nav>
-
-            <a href="student.html" class="nav-item">
-                <span>▦</span>
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="portal-logo">
+<svg viewbox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#176B8F" height="39" rx="7" width="32" x="7" y="5"></rect>
+<path d="M15 15H31" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<path d="M15 22H31" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<path d="M15 29H23" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="37" cy="36" fill="#F28C28" r="10" stroke="white" stroke-width="3"></circle>
+<path d="M32.5 36L35.5 39L41.5 32.5" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div>
+<h2>ExamPortal</h2>
+<span>Online Examination</span>
+</div>
+</div>
+<nav>
+<a class="nav-item" href="student.html">
+<span>▦</span>
                 Dashboard
             </a>
-
-            <a href="my-exams.html" class="nav-item active">
-                <span>◫</span>
+<a class="nav-item active" href="my-exams.html">
+<span>◫</span>
                 My Exams
             </a>
-
-            <a href="result.html" class="nav-item">
-                <span>◎</span>
+<a class="nav-item" href="result.html">
+<span>◎</span>
                 Results
             </a>
-
-            <a href="profile.html" class="nav-item">
-                <span>◎</span>
+<a class="nav-item" href="profile.html">
+<span>◎</span>
                 Profile
             </a>
-
-        </nav>
-
-
-        <a href="index.html" class="logout">
-            <span>↪</span>
+</nav>
+<a class="logout" href="index.html">
+<span>↪</span>
             Logout
         </a>
-
-    </aside>
-
-
-    <main class="main-content">
-
-
-        <!-- TOP BAR -->
-
-        <header class="topbar">
-
-            <div class="mobile-menu">
+</aside>
+<main class="main-content">
+<!-- TOP BAR -->
+<header class="topbar">
+<div class="mobile-menu">
                 ☰
             </div>
-
-            <div class="topbar-title">
+<div class="topbar-title">
                 My Examinations
             </div>
-
-            <div class="profile">
-
-                <div class="profile-avatar">
+<div class="profile">
+<div class="profile-avatar">
                     CF
                 </div>
-
-                <div class="profile-info">
-                    <strong>Cynthia Ferrao</strong>
-                    <span>Third Year</span>
-                </div>
-
-                <span class="profile-arrow">
+<div class="profile-info">
+<strong>Cynthia Ferrao</strong>
+<span>Third Year</span>
+</div>
+<span class="profile-arrow">
                     ⌄
                 </span>
-
-            </div>
-
-        </header>
-
-
-        <section class="content">
-
-
-            <!-- PAGE HEADING -->
-
-            <div class="welcome">
-
-                <div>
-
-                    <p class="welcome-label">
+</div>
+</header>
+<section class="content">
+<!-- PAGE HEADING -->
+<div class="welcome">
+<div>
+<p class="welcome-label">
                         STUDENT EXAMINATIONS
                     </p>
-
-                    <h1>
+<h1>
                         My Exams
                     </h1>
-
-                    <p>
+<p>
                         View your upcoming and completed examinations.
                     </p>
-
-                </div>
-
-                <div class="welcome-date">
-
-                    <span>
+</div>
+<div class="welcome-date">
+<span>
                         Today
                     </span>
-
-                    <strong>
+<strong id="myExamDate">
                         15 September 2026
                     </strong>
-
-                </div>
-
-            </div>
-
-
-            <!-- UPCOMING EXAMINATIONS -->
-
-            <div class="section-header">
-
-                <div>
-
-                    <h2>
+</div>
+</div>
+<!-- UPCOMING EXAMINATIONS -->
+<div class="section-header">
+<div>
+<h2>
                         Upcoming Examinations
                     </h2>
-
-                    <p>
+<p>
                         Examinations scheduled for you
                     </p>
-
-                </div>
-
-                <a href="student.html" class="view-all">
+</div>
+<a class="view-all" href="student.html">
                     Dashboard →
                 </a>
-
-            </div>
-
-
-            <div class="exam-list">
-
-
-                <!-- SOFTWARE ENGINEERING -->
-
-                <div class="exam-card-dashboard">
-
-                    <div class="exam-main">
-
-                        <div class="exam-icon">
-                            SE
-                        </div>
-
-                        <div class="exam-info">
-
-                            <div class="exam-title-row">
-
-                                <h3>
-                                    Software Engineering
-                                </h3>
-
-                                <span class="status available">
-                                    Live
-                                </span>
-
-                            </div>
-
-                            <p>
-                                Mid-Semester Examination
-                            </p>
-
-                            <div class="exam-meta">
-
-                                <span>
-                                    ◷ Available Anytime
-                                </span>
-
-                                <span>
-                                    ◫ 30 Minutes
-                                </span>
-
-                                <span>
-                                    ▣ 5 Questions
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-                        <a
-                            href="exam.html"
-                            class="start-btn"
-                            onclick="startSoftwareEngineering()">
-
-                            Start Exam →
-
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- ARTIFICIAL INTELLIGENCE -->
-
-                <div class="exam-card-dashboard">
-
-                    <div class="exam-main">
-
-                        <div class="exam-icon">
-                            AI
-                        </div>
-
-                        <div class="exam-info">
-
-                            <div class="exam-title-row">
-
-                                <h3>
-                                    Artificial Intelligence
-                                </h3>
-
-                                <span
-                                    id="aiStatus"
-                                    class="status upcoming">
-
-                                    Upcoming
-
-                                </span>
-
-                            </div>
-
-                            <p>
-                                Mid-Semester Examination
-                            </p>
-
-                            <div class="exam-meta">
-
-                                <span id="aiDate">
-                                    ◷ 20 Sep 2026, 2:00 PM
-                                </span>
-
-                                <span>
-                                    ◫ 30 Minutes
-                                </span>
-
-                                <span>
-                                    ▣ 5 Questions
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div id="aiAction">
-
-                        <button
-                            class="outline-btn"
-                            onclick="showAIExamDetails()">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HONOURS IN MATHEMATICS -->
-
-                <div class="exam-card-dashboard">
-
-                    <div class="exam-main">
-
-                        <div class="exam-icon">
-                            HM
-                        </div>
-
-                        <div class="exam-info">
-
-                            <div class="exam-title-row">
-
-                                <h3>
-                                    Honours in Mathematics
-                                </h3>
-
-                                <span class="status upcoming">
-                                    Upcoming
-                                </span>
-
-                            </div>
-
-                            <p>
-                                Mid-Semester Examination
-                            </p>
-
-                            <div class="exam-meta">
-
-                                <span>
-                                    ◷ 30 Sep 2026
-                                </span>
-
-                                <span>
-                                    ◫ 45 Minutes
-                                </span>
-
-                                <span>
-                                    ▣ 25 Questions
-                                </span>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-
-                    <div>
-
-                        <button
-                            class="outline-btn"
-                            onclick="showMathExamDetails()">
-
-                            View Details
-
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-
-            <!-- COMPLETED EXAMINATIONS -->
-
-            <div class="section-header results-heading">
-
-                <div>
-
-                    <h2>
+</div>
+<div class="exam-list"></div>
+<!-- COMPLETED EXAMINATIONS -->
+<div class="section-header results-heading">
+<div>
+<h2>
                         Completed Examinations
                     </h2>
-
-                    <p>
+<p>
                         Your completed examinations and results
                     </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="results-card">
-
-                <div class="result-row result-head">
-
-                    <span>EXAMINATION</span>
-                    <span>DATE</span>
-                    <span>SCORE</span>
-                    <span>STATUS</span>
-
-                </div>
-
-
-                <div class="result-row">
-
-                    <span class="result-name">
+</div>
+</div>
+<div class="results-card">
+<div class="result-row result-head">
+<span>EXAMINATION</span>
+<span>DATE</span>
+<span>SCORE</span>
+<span>STATUS</span>
+</div>
+<div class="result-row">
+<span class="result-name">
                         Database Management Systems
                     </span>
-
-                    <span>
+<span>
                         05 Sept 2026
                     </span>
-
-                    <strong>
+<strong>
                         86 / 100
                     </strong>
-
-                    <span class="result-status passed">
+<span class="result-status passed">
                         Passed
                     </span>
-
-                </div>
-
-
-                <div class="result-row">
-
-                    <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                         Computer Networks
                     </span>
-
-                    <span>
+<span>
                         01 Sept 2026
                     </span>
-
-                    <strong>
+<strong>
                         78 / 100
                     </strong>
-
-                    <span class="result-status passed">
+<span class="result-status passed">
                         Passed
                     </span>
-
-                </div>
-
-
-            </div>
-
-
-        </section>
-
-    </main>
-
 </div>
-
-
+</div>
+</section>
+</main>
+</div>
 <script>
 
 
@@ -639,7 +324,6 @@ function showMathExamDetails() {
 updateAIExamStatus();
 
 </script>
-
-
+<script src="portal-data.js"></script>
 </body>
 </html>

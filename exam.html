@@ -942,6 +942,38 @@ function submitExam() {
         selectedExam
     );
 
+    /* Save the submitted result to the shared portal data so the
+       Results, My Exams, Student Dashboard and Examiner portal all
+       show the new attempt immediately. */
+    try {
+        const resultsKey = "examResults";
+        const results = JSON.parse(localStorage.getItem(resultsKey) || "[]");
+        const percentageScore = questions.length > 0
+            ? Math.round((score / questions.length) * 100)
+            : 0;
+
+        const today = new Date();
+        const submittedDate = today.getFullYear() + "-" +
+            String(today.getMonth() + 1).padStart(2, "0") + "-" +
+            String(today.getDate()).padStart(2, "0");
+        // Keep one current result for Cynthia for each exam instead of
+        // creating duplicate rows when the same exam is submitted again.
+        const filteredResults = results.filter(r =>
+            !(r && r.student === "Cynthia Ferrao" && r.exam === selectedExam)
+        );
+        filteredResults.push({
+            student: "Cynthia Ferrao",
+            exam: selectedExam,
+            score: percentageScore,
+            total: 100,
+            status: "Evaluated",
+            date: submittedDate
+        });
+
+        localStorage.setItem(resultsKey, JSON.stringify(filteredResults));
+    } catch (error) {
+        console.error("Could not save exam result:", error);
+    }
 
     window.location.href =
         "result.html";
@@ -1030,6 +1062,7 @@ startTimer();
 </script>
 
 
+<script src="portal-data.js"></script>
 </body>
 
 </html>

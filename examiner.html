@@ -1,12 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Examiner Dashboard | ExamPortal</title>
-    <link rel="stylesheet" href="style.css">
-
-    <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Examiner Dashboard | ExamPortal</title>
+<link href="style.css" rel="stylesheet"/>
+<style>
         .portal-section {
             display: none;
         }
@@ -168,896 +168,525 @@
         }
     </style>
 </head>
-
 <body>
-
 <div class="dashboard">
-
-    <aside class="sidebar">
-
-        <div class="sidebar-brand">
-
-            <div class="portal-logo">
-                <svg viewBox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="7" y="5" width="32" height="39" rx="7" fill="#176B8F"/>
-                    <path d="M15 15H31" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M15 22H31" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                    <path d="M15 29H23" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                    <circle cx="37" cy="36" r="10" fill="#F28C28" stroke="white" stroke-width="3"/>
-                    <path d="M32.5 36L35.5 39L41.5 32.5"
-                          fill="none"
-                          stroke="white"
-                          stroke-width="2.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"/>
-                </svg>
-            </div>
-
-            <div>
-                <h2>ExamPortal</h2>
-                <span>Online Examination</span>
-            </div>
-
-        </div>
-
-
-        <nav>
-
-            <a href="#" class="nav-item active" id="dashboardTab" onclick="showSection('dashboardSection', this)">
-                <span>▦</span>
+<aside class="sidebar">
+<div class="sidebar-brand">
+<div class="portal-logo">
+<svg viewbox="0 0 52 52" xmlns="http://www.w3.org/2000/svg">
+<rect fill="#176B8F" height="39" rx="7" width="32" x="7" y="5"></rect>
+<path d="M15 15H31" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<path d="M15 22H31" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<path d="M15 29H23" stroke="white" stroke-linecap="round" stroke-width="3"></path>
+<circle cx="37" cy="36" fill="#F28C28" r="10" stroke="white" stroke-width="3"></circle>
+<path d="M32.5 36L35.5 39L41.5 32.5" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+</div>
+<div>
+<h2>ExamPortal</h2>
+<span>Online Examination</span>
+</div>
+</div>
+<nav>
+<a class="nav-item active" href="#" id="dashboardTab" onclick="showSection('dashboardSection', this)">
+<span>▦</span>
                 Dashboard
             </a>
-
-            <a href="#" class="nav-item" onclick="showSection('examsSection', this); renderExams()">
-                <span>◫</span>
+<a class="nav-item" href="#" onclick="showSection('examsSection', this); renderExams()">
+<span>◫</span>
                 My Exams
             </a>
-
-            <a href="#" class="nav-item" onclick="showSection('submissionsSection', this)">
-                <span>▤</span>
+<a class="nav-item" href="#" onclick="showSection('submissionsSection', this)">
+<span>▤</span>
                 Submissions
             </a>
-
-            <a href="#" class="nav-item" onclick="showSection('resultsSection', this)">
-                <span>◎</span>
+<a class="nav-item" href="#" onclick="showSection('resultsSection', this)">
+<span>◎</span>
                 Results
             </a>
-
-        </nav>
-
-
-        <a href="index.html" class="logout">
-            <span>↪</span>
+</nav>
+<a class="logout" href="index.html">
+<span>↪</span>
             Logout
         </a>
-
-    </aside>
-
-
-    <main class="main-content">
-
-        <header class="topbar">
-
-            <div class="mobile-menu">
+</aside>
+<main class="main-content">
+<header class="topbar">
+<div class="mobile-menu">
                 ☰
             </div>
-
-            <div class="topbar-title">
+<div class="topbar-title">
                 Examiner Portal
             </div>
-
-            <div class="profile">
-
-                <div class="profile-avatar">
+<div class="profile">
+<div class="profile-avatar">
                     CF
                 </div>
-
-                <div class="profile-info">
-                    <strong>Cynthia Ferrao</strong>
-                    <span>Examiner</span>
-                </div>
-
-                <span class="profile-arrow">
+<div class="profile-info">
+<strong>Cynthia Ferrao</strong>
+<span>Examiner</span>
+</div>
+<span class="profile-arrow">
                     ⌄
                 </span>
-
-            </div>
-
-        </header>
-
-
-        <section class="content">
-
-
-            <!-- ================= DASHBOARD ================= -->
-
-            <div id="dashboardSection" class="portal-section active-section">
-
-                <div class="welcome">
-
-                    <div>
-
-                        <p class="welcome-label">
+</div>
+</header>
+<section class="content">
+<!-- ================= DASHBOARD ================= -->
+<div class="portal-section active-section" id="dashboardSection">
+<div class="welcome">
+<div>
+<p class="welcome-label">
                             EXAMINER DASHBOARD
                         </p>
-
-                        <h1 id="welcomeMessage">
+<h1 id="welcomeMessage">
                             Good afternoon, Cynthia Ferrao
                         </h1>
-
-                        <p>
+<p>
                             Manage examinations, submissions and student results.
                         </p>
-
-                    </div>
-
-                    <div class="welcome-date">
-
-                        <span>
+</div>
+<div class="welcome-date">
+<span>
                             Today
                         </span>
-
-                        <strong>
-                            15 September 2026
-                        </strong>
-
-                    </div>
-
-                </div>
-
-
-                <div class="stats-grid">
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon blue">
+<strong id="currentExaminerDate">15 September 2026</strong>
+</div>
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon blue">
                             ▣
                         </div>
-
-                        <div>
-                            <span>Total Exams</span>
-                            <strong>08</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon orange">
+<div>
+<span>Total Exams</span>
+<strong>08</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">
                             ◷
                         </div>
-
-                        <div>
-                            <span>Upcoming</span>
-                            <strong id="upcomingCount">02</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon blue">
+<div>
+<span>Upcoming</span>
+<strong id="upcomingCount">02</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon blue">
                             ✓
                         </div>
-
-                        <div>
-                            <span>Completed</span>
-                            <strong>05</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon orange">
+<div>
+<span>Completed</span>
+<strong>05</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">
                             %
                         </div>
-
-                        <div>
-                            <span>Submissions</span>
-                            <strong>126</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>Examination Management</h2>
-                        <p>Create and manage your examinations</p>
-                    </div>
-
-                    <button class="start-btn" onclick="openScheduleForm()">
+<div>
+<span>Submissions</span>
+<strong>126</strong>
+</div>
+</div>
+</div>
+<div class="section-header">
+<div>
+<h2>Examination Management</h2>
+<p>Create and manage your examinations</p>
+</div>
+<button class="start-btn" onclick="openScheduleForm()">
                         + Schedule Exam
                     </button>
-
-                </div>
-
-
-                <div class="exam-list" id="dashboardExamList">
-                </div>
-
-
-                <div class="section-header results-heading">
-
-                    <div>
-
-                        <h2>
+</div>
+<div class="exam-list" id="dashboardExamList">
+</div>
+<div class="section-header results-heading">
+<div>
+<h2>
                             Recent Submissions
                         </h2>
-
-                        <p>
+<p>
                             Latest student examination submissions
                         </p>
-
-                    </div>
-
-                    <button
-                        class="view-all"
-                        onclick="showSection('submissionsSection', document.querySelectorAll('.nav-item')[2])">
+</div>
+<button class="view-all" onclick="showSection('submissionsSection', document.querySelectorAll('.nav-item')[2])">
                         View all →
                     </button>
-
-                </div>
-
-
-                <div class="results-card">
-
-                    <div class="result-row result-head">
-
-                        <span>STUDENT</span>
-                        <span>EXAMINATION</span>
-                        <span>SCORE</span>
-                        <span>STATUS</span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="results-card">
+<div class="result-row result-head">
+<span>STUDENT</span>
+<span>EXAMINATION</span>
+<span>SCORE</span>
+<span>STATUS</span>
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Software Engineering
                         </span>
-
-                        <strong>
+<strong>
                             86 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Evaluated
                         </span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Artificial Intelligence
                         </span>
-
-                        <strong>
+<strong>
                             82 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Evaluated
                         </span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Computer Networks
                         </span>
-
-                        <strong>
+<strong>
                             91 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Evaluated
                         </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= MY EXAMS ================= -->
-
-            <div id="examsSection" class="portal-section">
-
-                <div class="tab-title">
-
-                    <h2>My Exams</h2>
-
-                    <p>
+</div>
+</div>
+</div>
+<!-- ================= MY EXAMS ================= -->
+<div class="portal-section" id="examsSection">
+<div class="tab-title">
+<h2>My Exams</h2>
+<p>
                         View and manage all examinations created by Cynthia Ferrao.
                     </p>
-
-                </div>
-
-                <div class="section-header">
-
-                    <div>
-                        <h2>Examination Management</h2>
-                        <p>Manage scheduled, live and cancelled examinations.</p>
-                    </div>
-
-                    <button class="start-btn" onclick="openScheduleForm()">
+</div>
+<div class="section-header">
+<div>
+<h2>Examination Management</h2>
+<p>Manage scheduled, live and cancelled examinations.</p>
+</div>
+<button class="start-btn" onclick="openScheduleForm()">
                         + Schedule Exam
                     </button>
-
-                </div>
-
-                <div class="exam-list" id="allExamList">
-                </div>
-
-            </div>
-
-
-            <!-- ================= SUBMISSIONS ================= -->
-
-            <div id="submissionsSection" class="portal-section">
-
-                <div class="tab-title">
-
-                    <h2>Submissions</h2>
-
-                    <p>
+</div>
+<div class="exam-list" id="allExamList"></div>
+</div>
+<!-- ================= SUBMISSIONS ================= -->
+<div class="portal-section" id="submissionsSection">
+<div class="tab-title">
+<h2>Submissions</h2>
+<p>
                         View student examination submissions.
                     </p>
-
-                </div>
-
-
-                <div class="results-card">
-
-                    <div class="result-row result-head">
-
-                        <span>STUDENT</span>
-                        <span>EXAMINATION</span>
-                        <span>SCORE</span>
-                        <span>STATUS</span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="results-card">
+<div class="result-row result-head">
+<span>STUDENT</span>
+<span>EXAMINATION</span>
+<span>SCORE</span>
+<span>STATUS</span>
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Software Engineering
                         </span>
-
-                        <strong>
+<strong>
                             86 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Evaluated
                         </span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Artificial Intelligence
                         </span>
-
-                        <strong>
+<strong>
                             82 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Evaluated
                         </span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Honours in Mathematics
                         </span>
-
-                        <strong>
+<strong>
                             88 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Evaluated
                         </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= RESULTS ================= -->
-
-            <div id="resultsSection" class="portal-section">
-
-                <div class="tab-title">
-
-                    <h2>Results</h2>
-
-                    <p>
+</div>
+</div>
+</div>
+<!-- ================= RESULTS ================= -->
+<div class="portal-section" id="resultsSection">
+<div class="tab-title">
+<h2>Results</h2>
+<p>
                         View student examination performance and results.
                     </p>
-
-                </div>
-
-
-                <div class="stats-grid">
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon blue">
+</div>
+<div class="stats-grid">
+<div class="stat-card">
+<div class="stat-icon blue">
                             %
                         </div>
-
-                        <div>
-                            <span>Average Score</span>
-                            <strong>85%</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon orange">
+<div>
+<span>Average Score</span>
+<strong>85%</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">
                             ✓
                         </div>
-
-                        <div>
-                            <span>Passed</span>
-                            <strong>05</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon blue">
+<div>
+<span>Passed</span>
+<strong>05</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon blue">
                             ▣
                         </div>
-
-                        <div>
-                            <span>Evaluated</span>
-                            <strong>126</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat-card">
-
-                        <div class="stat-icon orange">
+<div>
+<span>Evaluated</span>
+<strong>126</strong>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-icon orange">
                             ★
                         </div>
-
-                        <div>
-                            <span>Best Score</span>
-                            <strong>92%</strong>
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <div class="section-header results-heading">
-
-                    <div>
-
-                        <h2>
+<div>
+<span>Best Score</span>
+<strong>92%</strong>
+</div>
+</div>
+</div>
+<div class="section-header results-heading">
+<div>
+<h2>
                             Student Results
                         </h2>
-
-                        <p>
+<p>
                             Examination-wise student performance.
                         </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="results-card">
-
-                    <div class="result-row result-head">
-
-                        <span>STUDENT</span>
-                        <span>EXAMINATION</span>
-                        <span>SCORE</span>
-                        <span>STATUS</span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+</div>
+<div class="results-card">
+<div class="result-row result-head">
+<span>STUDENT</span>
+<span>EXAMINATION</span>
+<span>SCORE</span>
+<span>STATUS</span>
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Software Engineering
                         </span>
-
-                        <strong>
+<strong>
                             86 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Passed
                         </span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Artificial Intelligence
                         </span>
-
-                        <strong>
+<strong>
                             82 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Passed
                         </span>
-
-                    </div>
-
-
-                    <div class="result-row">
-
-                        <span class="result-name">
+</div>
+<div class="result-row">
+<span class="result-name">
                             Cynthia Ferrao
                         </span>
-
-                        <span>
+<span>
                             Honours in Mathematics
                         </span>
-
-                        <strong>
+<strong>
                             88 / 100
                         </strong>
-
-                        <span class="result-status passed">
+<span class="result-status passed">
                             Passed
                         </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= SCHEDULE FORM ================= -->
-
-            <div id="scheduleFormSection" class="portal-section">
-
-                <div class="tab-title">
-
-                    <h2>Schedule Examination</h2>
-
-                    <p>
+</div>
+</div>
+</div>
+<!-- ================= SCHEDULE FORM ================= -->
+<div class="portal-section" id="scheduleFormSection">
+<div class="tab-title">
+<h2>Schedule Examination</h2>
+<p>
                         Create a new examination.
                     </p>
-
-                </div>
-
-
-                <div class="management-form">
-
-                    <h3>New Examination</h3>
-
-                    <p>
+</div>
+<div class="management-form">
+<h3>New Examination</h3>
+<p>
                         Enter the examination details below.
                     </p>
-
-
-                    <div class="form-grid">
-
-                        <div class="form-group full">
-
-                            <label>Examination Name</label>
-
-                            <input
-                                type="text"
-                                id="newExamName"
-                                placeholder="Enter examination name">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Date</label>
-
-                            <input
-                                type="date"
-                                id="newExamDate">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Time</label>
-
-                            <input
-                                type="time"
-                                id="newExamTime">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Duration (Minutes)</label>
-
-                            <input
-                                type="number"
-                                id="newExamDuration"
-                                min="1"
-                                placeholder="30">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Number of Questions</label>
-
-                            <input
-                                type="number"
-                                id="newExamQuestions"
-                                min="1"
-                                placeholder="5">
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-actions">
-
-                        <button class="cancel-btn" onclick="showSection('dashboardSection', document.querySelectorAll('.nav-item')[0])">
+<div class="form-grid">
+<div class="form-group full">
+<label>Examination Name</label>
+<input id="newExamName" placeholder="Enter examination name" type="text"/>
+</div>
+<div class="form-group">
+<label>Date</label>
+<input id="newExamDate" type="date"/>
+</div>
+<div class="form-group">
+<label>Time</label>
+<input id="newExamTime" type="time"/>
+</div>
+<div class="form-group">
+<label>Duration (Minutes)</label>
+<input id="newExamDuration" min="1" placeholder="30" type="number"/>
+</div>
+<div class="form-group">
+<label>Number of Questions</label>
+<input id="newExamQuestions" min="1" placeholder="5" type="number"/>
+</div>
+</div>
+<div class="form-actions">
+<button class="cancel-btn" onclick="showSection('dashboardSection', document.querySelectorAll('.nav-item')[0])">
                             Cancel
                         </button>
-
-                        <button class="start-btn" onclick="saveNewExam()">
+<button class="start-btn" onclick="saveNewExam()">
                             Schedule Exam
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= POSTPONE FORM ================= -->
-
-            <div id="postponeFormSection" class="portal-section">
-
-                <div class="tab-title">
-
-                    <h2>Postpone Examination</h2>
-
-                    <p>
+</div>
+</div>
+</div>
+<!-- ================= POSTPONE FORM ================= -->
+<div class="portal-section" id="postponeFormSection">
+<div class="tab-title">
+<h2>Postpone Examination</h2>
+<p>
                         Change the date and time of the selected examination.
                     </p>
-
-                </div>
-
-
-                <div class="management-form">
-
-                    <h3 id="postponeExamName">
+</div>
+<div class="management-form">
+<h3 id="postponeExamName">
                         Examination
                     </h3>
-
-                    <p>
+<p>
                         Select the new date and time.
                     </p>
-
-
-                    <div class="form-grid">
-
-                        <div class="form-group">
-
-                            <label>Current Date</label>
-
-                            <input
-                                type="text"
-                                id="currentExamDate"
-                                disabled>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>Current Time</label>
-
-                            <input
-                                type="text"
-                                id="currentExamTime"
-                                disabled>
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>New Date</label>
-
-                            <input
-                                type="date"
-                                id="postponeDate">
-
-                        </div>
-
-
-                        <div class="form-group">
-
-                            <label>New Time</label>
-
-                            <input
-                                type="time"
-                                id="postponeTime">
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-actions">
-
-                        <button class="cancel-btn" onclick="showSection('examsSection', document.querySelectorAll('.nav-item')[1])">
+<div class="form-grid">
+<div class="form-group">
+<label>Current Date</label>
+<input disabled="" id="currentExamDate" type="text"/>
+</div>
+<div class="form-group">
+<label>Current Time</label>
+<input disabled="" id="currentExamTime" type="text"/>
+</div>
+<div class="form-group">
+<label>New Date</label>
+<input id="postponeDate" type="date"/>
+</div>
+<div class="form-group">
+<label>New Time</label>
+<input id="postponeTime" type="time"/>
+</div>
+</div>
+<div class="form-actions">
+<button class="cancel-btn" onclick="showSection('examsSection', document.querySelectorAll('.nav-item')[1])">
                             Cancel
                         </button>
-
-                        <button class="start-btn" onclick="savePostponedExam()">
+<button class="start-btn" onclick="savePostponedExam()">
                             Save Changes
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ================= DETAILS ================= -->
-
-            <div id="detailsSection" class="portal-section">
-
-                <div class="tab-title">
-
-                    <h2>Examination Details</h2>
-
-                    <p>
+</div>
+</div>
+</div>
+<!-- ================= DETAILS ================= -->
+<div class="portal-section" id="detailsSection">
+<div class="tab-title">
+<h2>Examination Details</h2>
+<p>
                         Complete information about the selected examination.
                     </p>
-
-                </div>
-
-
-                <div class="exam-details">
-
-                    <h3 id="detailsExamName">
+</div>
+<div class="exam-details">
+<h3 id="detailsExamName">
                         Examination
                     </h3>
-
-                    <div class="exam-details-grid">
-
-                        <div class="detail-box">
-                            <span>Examiner</span>
-                            <strong>Cynthia Ferrao</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Status</span>
-                            <strong id="detailsStatus">Upcoming</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Date</span>
-                            <strong id="detailsDate">-</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Time</span>
-                            <strong id="detailsTime">-</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Duration</span>
-                            <strong id="detailsDuration">-</strong>
-                        </div>
-
-                        <div class="detail-box">
-                            <span>Questions</span>
-                            <strong id="detailsQuestions">-</strong>
-                        </div>
-
-                    </div>
-
-
-                    <div class="form-actions">
-
-                        <button class="cancel-btn"
-                                onclick="showSection('examsSection', document.querySelectorAll('.nav-item')[1])">
+<div class="exam-details-grid">
+<div class="detail-box">
+<span>Examiner</span>
+<strong>Cynthia Ferrao</strong>
+</div>
+<div class="detail-box">
+<span>Status</span>
+<strong id="detailsStatus">Upcoming</strong>
+</div>
+<div class="detail-box">
+<span>Date</span>
+<strong id="detailsDate">-</strong>
+</div>
+<div class="detail-box">
+<span>Time</span>
+<strong id="detailsTime">-</strong>
+</div>
+<div class="detail-box">
+<span>Duration</span>
+<strong id="detailsDuration">-</strong>
+</div>
+<div class="detail-box">
+<span>Questions</span>
+<strong id="detailsQuestions">-</strong>
+</div>
+</div>
+<div class="form-actions">
+<button class="cancel-btn" onclick="showSection('examsSection', document.querySelectorAll('.nav-item')[1])">
                             Back to My Exams
                         </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
 </div>
-
-
+</div>
+</div>
+</section>
+</main>
+</div>
 <script>
 
 /* =========================================================
@@ -1809,6 +1438,6 @@ updateExamStatuses();
 renderDashboardExams();
 
 </script>
-
+<script src="portal-data.js"></script>
 </body>
 </html>
